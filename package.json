@@ -1,0 +1,24 @@
+{
+  "name": "wahapp",
+  "version": "0.0.1",
+  "description": "Quick tag-based 40k library",
+  "main": "elm.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./"
+  },
+  "keywords": [
+    "40k",
+    "tags",
+    "elm"
+  ],
+  "author": "Alexander Schramm",
+  "license": "MIT",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "devDependencies": {
+    "elm-hot": "^1.1.6",
+    "node-elm-compiler": "^5.0.6"
+  }
+}

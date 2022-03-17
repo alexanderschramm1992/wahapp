@@ -1,0 +1,73 @@
+body {
+    color: lightcyan;
+    background-color: black;
+    font-size: 3.5em;
+}
+
+table {
+    font-size: 1em;
+}
+
+div#view-root {
+    color: lightcyan;
+    background-color: black;
+    width: 100%;
+}
+
+article.card {
+    color: lightcyan;
+    background-color: black;
+}
+
+nav {
+    color: lightcyan;
+    background-color: black;
+}
+
+div.brand {
+    width: 75%;
+    max-width: 75%;
+}
+
+input {
+    color: lightcyan;
+    background-color: black;
+}
+
+span.tag {
+    font-size: 0.8em;
+}
+
+img.faction-icon {
+    height: 1.2em;
+    float: right;
+    right: 0.6em;
+}
+
+div.sub-header {
+    font-weight: bold;
+}
+
+span.cost {
+    float: right;
+}
+
+.mr {
+    margin-right: 0.6em;
+}
+
+.mt-02 {
+    margin-top: 0.2em;
+}
+
+.m-01 {
+    margin: 0.1em;
+}
+
+.p {
+    padding: 0.6em 0.8em;
+}
+
+.border {
+    border: 1px solid #aaa;
+}
