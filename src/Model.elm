@@ -5,7 +5,7 @@ type Cost
     | Complex Int Int
 
 type Kind
-    = Wargear
+    = WarlordTrait
     | Ability
     | Stratagem 
 

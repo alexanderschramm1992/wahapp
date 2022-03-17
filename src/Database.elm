@@ -17,6 +17,82 @@ armageddon = Just (Faction "Armageddon" "Armageddon.png")
 specialistDetachment: Maybe Faction
 specialistDetachment = Just (Faction "Specialist Detachment" "SpecialistDetachment.png")
 
+warlordTraits: List Article
+warlordTraits =
+  [ { header = 
+        { title = "Grand Strategist"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "Whilst your Warlord is alive, you can re-roll a single hit roll, wound roll or saving throw per battle. In addition, if your army is Battle-forged and this Warlord is on the battlefield, roll a D6 for each Command Point you spend to use a Stratagem; on a 5+ that Command Point is immediately refunded."
+    , tags = 
+      [ (Tag "Warlord Trait")
+      , (Tag "Stratagem") ] }
+  , { header = 
+        { title = "Old Grudges"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "After deployment, but before the first battle round begins, choose a unit in your opponent’s army. You can re-roll failed wound rolls for ASTRA MILITARUM units from your army that target the unit you chose whilst they are within 6'' of your Warlord."
+    , tags = 
+      [ (Tag "Warlord Trait")
+      , (Tag "Before Battle") ] }
+  , { header = 
+        { title = "Implacable Determination"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "When your Warlord and a single friendly unit within 3'' of them Advances, they may both add 6'' to their Move characteristic for that Movement phase instead of rolling a dice."
+    , tags = 
+      [ (Tag "Warlord Trait")
+      , (Tag "Movement Phase")
+      , (Tag "Advance") ] }
+  , { header = 
+        { title = "Draconian Disciplinarian"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "You can re-roll failed Morale tests for friendly ASTRA MILITARUM INFANTRY units within 6'' of your Warlord in the Morale phase. If a COMMISSAR has this Warlord Trait, then their Summary Execution ability takes precedence, but if the re-rolled Morale test is also failed then D3 additional models are slain and the test is then considered to have passed."
+    , tags = 
+      [ (Tag "Warlord Trait")
+      , (Tag "Morale Phase")
+      , (Tag "Commissar") ] }
+  , { header = 
+        { title = "Bellowing Voice"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "Add 3'' to the range of any abilities on your Warlord’s datasheet (such as Aura of Discipline or Voice of Command)."
+    , tags = 
+      [ (Tag "Warlord Trait") ] }
+  , { header = 
+        { title = "Master of Command"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "Your Warlord gains the Voice of Command ability. If your Warlord already has the Voice of Command or Tank Orders ability, they may instead issue one additional order per turn. If your Warlord is a COMMISSAR, it can issue an order to any <REGIMENT> INFANTRY unit (irrespective of what regiment that unit is from – e.g. MILITARUM TEMPESTUS, CADIAN, etc.)"
+    , tags = 
+      [ (Tag "Warlord Trait")
+      , (Tag "Infantry")
+      , (Tag "Vehicle")
+      , (Tag "Commissar") ] }
+  , { header = 
+        { title = "Ex Gang Leader"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = astraMilitarum
+        , subfaction = armageddon }
+    , content = Text "Add 1 to this Warlord’s Attacks characteristic. In addition, add 1 to any wound rolls made for your Warlord in the Fight phase."
+    , tags = 
+      [ (Tag "Warlord Trait")
+      , (Tag "Fight Phase") ] } ]
+
 abilities: List Article
 abilities =
   [ { header = 
@@ -479,7 +555,79 @@ stratagems =
       , (Tag "Movement Phase")
       , (Tag "Emperor's Blade")
       , (Tag "Chimera")
-      , (Tag "Infantry") ] } ]
+      , (Tag "Infantry") ] }
+  , { header = 
+      { title = "Command Re-Roll"
+      , cost = Just (Simple 1)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem after you have made a hit roll, a wound roll, a damage roll, a saving throw, an Advance roll, a charge roll, a Psychic test, a Deny the Witch test or you have rolled the dice to determine the number of attacks made by a weapon. Re-roll that roll, test or saving throw."
+    , tags = 
+      [ (Tag "Stratagem") ] }
+  , { header = 
+      { title = "Cut them down"
+      , cost = Just (Simple 1)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem when an enemy unit Falls Back, before any models in that unit are moved. Roll one D6 for each model from your army that is within Engagement Range of that enemy unit; for each result of 6, that enemy unit suffers 1 mortal wound."
+    , tags = 
+      [ (Tag "Stratagem")
+      , (Tag "Movement Phase")
+      , (Tag "Fall Back")
+      , (Tag "Mortal Wound") ] }
+  , { header = 
+      { title = "Desperate Breakout"
+      , cost = Just (Simple 2)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem in your Movement phase. Select one unit from your army that has not been selected to move this phase and which is in Engagement Range with at least one enemy unit. Roll one D6 for each model in that unit; for each result of 1, one model in that unit of your choice is destroyed. Assuming that unit was not destroyed, it can now attempt to Fall Back, and when doing so its models can be moved across enemy models as if they were not there. Any model in that unit that ends its Fall Back move within Engagement Range of any enemy model is destroyed. Assuming the unit is not destroyed, it cannot do anything else this turn (i.e. it cannot attempt to manifest psychic powers, shoot, declare a charge, be selected to fight etc.), even if it has a rule that would allow it to do so after Falling Back."
+    , tags = 
+      [ (Tag "Stratagem")
+      , (Tag "Movement Phase") ] }
+  , { header = 
+      { title = "Emergency Disembarkation"
+      , cost = Just (Simple 1)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem when a TRANSPORT model from your army is destroyed. All units that are embarked within that model can be set up wholly within 6'' of the destroyed model when they disembark instead of the normal 3'' before the model itself is removed from the battlefield. These units are not affected by the destroyed model's Explodes ability (or equivalent) — instead you must roll one D6 for each model you just set up on the battlefield. Instead of one model that disembarked (your choice) being destroyed for each roll of 1, one model that disembarked (your choice) is destroyed for each roll of 1 or 2. Units cannot declare a charge or perform a Heroic Intervention in the same turn that they disembarked from a destroyed TRANSPORT model."
+    , tags = 
+      [ (Tag "Stratagem")
+      , (Tag "Transport") ] }
+  , { header = 
+      { title = "Fire Overwatch"
+      , cost = Just (Simple 1)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem after an enemy unit has declared a charge against one or more units from your army. One of the units that was chosen as the target of that charge can fire Overwatch before the charge roll is made."
+    , tags = 
+      [ (Tag "Stratagem")
+      , (Tag "Charge Phase")
+      , (Tag "Overwatch") ] }
+  , { header = 
+      { title = "Counter Offensive"
+      , cost = Just (Simple 2)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem after an enemy unit has fought in this turn. Select one of your own eligible units and fight with it next."
+    , tags = 
+      [ (Tag "Stratagem")
+      , (Tag "Fight Phase") ] }
+  , { header = 
+      { title = "Insane Bravery"
+      , cost = Just (Simple 2)
+      , kind = Stratagem
+      , faction = Nothing
+      , subfaction = Nothing }
+    , content = Text "Use this Stratagem before you take a Morale test for a unit in your army. That test is automatically passed (do not roll any dice). You can only use this Stratagem once per battle."
+    , tags = 
+      [ (Tag "Stratagem")
+      , (Tag "Morale Phase") ] } ]
 
 state: List Article
-state = stratagems ++ abilities
+state = stratagems ++ abilities ++ warlordTraits
