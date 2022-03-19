@@ -35,7 +35,7 @@ warlordTraits =
         , kind = WarlordTrait
         , faction = astraMilitarum
         , subfaction = Nothing }
-    , content = Text "After deployment, but before the first battle round begins, choose a unit in your opponent’s army. You can re-roll failed wound rolls for ASTRA MILITARUM units from your army that target the unit you chose whilst they are within 6'' of your Warlord."
+    , content = Text "After deployment, but before the first battle round begins, choose a unit in your opponent's army. You can re-roll failed wound rolls for ASTRA MILITARUM units from your army that target the unit you chose whilst they are within 6'' of your Warlord."
     , tags = 
       [ (Tag "Warlord Trait")
       , (Tag "Before Battle") ] }
@@ -67,7 +67,7 @@ warlordTraits =
         , kind = WarlordTrait
         , faction = astraMilitarum
         , subfaction = Nothing }
-    , content = Text "Add 3'' to the range of any abilities on your Warlord’s datasheet (such as Aura of Discipline or Voice of Command)."
+    , content = Text "Add 3'' to the range of any abilities on your Warlord's datasheet (such as Aura of Discipline or Voice of Command)."
     , tags = 
       [ (Tag "Warlord Trait") ] }
   , { header = 
@@ -88,7 +88,7 @@ warlordTraits =
         , kind = WarlordTrait
         , faction = astraMilitarum
         , subfaction = armageddon }
-    , content = Text "Add 1 to this Warlord’s Attacks characteristic. In addition, add 1 to any wound rolls made for your Warlord in the Fight phase."
+    , content = Text "Add 1 to this Warlord's Attacks characteristic. In addition, add 1 to any wound rolls made for your Warlord in the Fight phase."
     , tags = 
       [ (Tag "Warlord Trait")
       , (Tag "Fight Phase") ] } ]
@@ -155,7 +155,7 @@ abilities =
         , kind = Ability
         , faction = astraMilitarum
         , subfaction = Nothing }
-    , content = Text "ASTRA MILITARUM units within 6'' of a friendly COMMISSAR can use the Commissar’s Leadership instead of their own."
+    , content = Text "ASTRA MILITARUM units within 6'' of a friendly COMMISSAR can use the Commissar's Leadership instead of their own."
     , tags = 
       [ (Tag "Ability")
       , (Tag "Morale Phase")
@@ -244,7 +244,7 @@ abilities =
         , kind = Ability
         , faction = Nothing
         , subfaction = Nothing }
-    , content = Text "If this model fires a supercharged plasma cannon, and you roll one or more hit rolls of 1, it is not automatically destroyed. Instead, for each hit roll of 1, the bearer suffers 1 mortal wound after all of this weapon’s shots have been resolved."
+    , content = Text "If this model fires a supercharged plasma cannon, and you roll one or more hit rolls of 1, it is not automatically destroyed. Instead, for each hit roll of 1, the bearer suffers 1 mortal wound after all of this weapon's shots have been resolved."
     , tags = 
       [ (Tag "Ability")
       , (Tag "Vehicle")
@@ -265,7 +265,57 @@ abilities =
     , tags = 
       [ (Tag "Ability")
       , (Tag "Vehicle")
-      , (Tag "Shooting Phase") ] } ]
+      , (Tag "Shooting Phase") ] }
+  , { header = 
+        { title = "Brute Shield"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "Models equipped with a brute shield have a 4+ invulnerable save."
+    , tags = 
+      [ (Tag "Ability")
+      , (Tag "Invulnerable Save") ] }
+  , { header = 
+        { title = "Avalanche of Muscle"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "You can add 1 to the Attacks characteristic of this unit in the Fight phase on any turn in which it made a successful charge. This ability may only be used the first time this unit fights each turn."
+    , tags = 
+      [ (Tag "Ability")
+      , (Tag "Fight Phase")
+      , (Tag "Charge Phase") ] }
+  , { header = 
+        { title = "Leading from the Front"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "Friendly ASTRA MILITARUM units within 6'' of this model automatically pass Morale tests whilst this model is within 1'' of an enemy model."
+    , tags = 
+      [ (Tag "Ability")
+      , (Tag "Morale Phase") ] }
+  , { header = 
+        { title = "Vehicle Squadron"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "The first time this unit is set up, all models in this unit must be placed within 6'' of each other. From that point onwards, each operates independently and is treated as a separate unit for all rules purposes."
+    , tags = 
+      [ (Tag "Ability")
+      , (Tag "Before Battle") ] }
+  , { header = 
+        { title = "Artillery and Crew"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = Nothing }
+    , content = Text "Each Heavy Quad Launcher and its crew are treated as a single model for all rules purposes (crew models must remain within 1'' of their Heavy Quad Launcher model). This means that the crew models cannot be targeted or attacked separately and that visibility and all ranges are measured to and from the Heavy Quad Launcher's model, not the crew models. This unit cannot Advance, is never eligible to charge or Heroically Intervene, and cannot make pile-in or consolidation moves."
+    , tags = 
+      [ (Tag "Ability") ] } ]
 
 stratagems: List Article
 stratagems =
@@ -392,7 +442,7 @@ stratagems =
         , kind = Stratagem
         , faction = astraMilitarum
         , subfaction = Nothing }
-    , content = Text "Use this Stratagem in your opponent’s Shooting phase when your opponent selects one of your ASTRA MILITARUM INFANTRY units as a target. You can add 1 to armour saving throws you make for this unit until the end of the phase."
+    , content = Text "Use this Stratagem in your opponent's Shooting phase when your opponent selects one of your ASTRA MILITARUM INFANTRY units as a target. You can add 1 to armour saving throws you make for this unit until the end of the phase."
     , tags = 
       [ (Tag "Stratagem")
       , (Tag "Shooting Phase")
@@ -520,7 +570,7 @@ stratagems =
       , kind = Stratagem
       , faction = astraMilitarum
       , subfaction = specialistDetachment }
-    , content = Text "Use this Stratagem when choosing your army. Pick an ASTRA MILITARUM Detachment from your army to be an Emperor’s Blade Specialist Detachment. COMPANY COMMANDERS, PLATOON COMMANDERS, COMMAND SQUADS, SPECIAL WEAPON SQUADS, VETERANS, INFANTRY SQUADS, CHIMERAS and TAUROXES in that Detachment gain the EMPEROR’S BLADE keyword."
+    , content = Text "Use this Stratagem when choosing your army. Pick an ASTRA MILITARUM Detachment from your army to be an Emperor's Blade Specialist Detachment. COMPANY COMMANDERS, PLATOON COMMANDERS, COMMAND SQUADS, SPECIAL WEAPON SQUADS, VETERANS, INFANTRY SQUADS, CHIMERAS and TAUROXES in that Detachment gain the EMPEROR'S BLADE keyword."
     , tags = 
       [ (Tag "Stratagem")
       , (Tag "Before Battle")
@@ -535,7 +585,7 @@ stratagems =
       , kind = Stratagem
       , faction = astraMilitarum
       , subfaction = specialistDetachment }
-    , content = Text "Use this Stratagem in the enemy Charge phase after an EMPEROR’S BLADE INFANTRY unit from your army is chosen as the target of an enemy unit’s charge. Pick an EMPEROR’S BLADE CHIMERA or EMPEROR’S BLADE TAUROX from your army within 6'' of the unit being charged. The vehicle picked can fire Overwatch at the charging unit even if it is not the target of the charge, and when doing so, will hit the enemy on hit rolls of 4+, regardless of modifiers."
+    , content = Text "Use this Stratagem in the enemy Charge phase after an EMPEROR'S BLADE INFANTRY unit from your army is chosen as the target of an enemy unit's charge. Pick an EMPEROR'S BLADE CHIMERA or EMPEROR'S BLADE TAUROX from your army within 6'' of the unit being charged. The vehicle picked can fire Overwatch at the charging unit even if it is not the target of the charge, and when doing so, will hit the enemy on hit rolls of 4+, regardless of modifiers."
     , tags = 
       [ (Tag "Stratagem")
       , (Tag "Charge Phase")
@@ -549,7 +599,7 @@ stratagems =
       , kind = Stratagem
       , faction = astraMilitarum
       , subfaction = specialistDetachment }
-    , content = Text "Use this Stratagem at the end of your Movement phase. An EMPEROR’S BLADE unit embarked within an EMPEROR’S BLADE CHIMERA or EMPEROR’S BLADE TAUROX can disembark. That unit cannot move further in this phase, but can otherwise act normally for the rest of the turn. That unit counts as having moved for any rules purposes, such as shooting Heavy weapons."
+    , content = Text "Use this Stratagem at the end of your Movement phase. An EMPEROR'S BLADE unit embarked within an EMPEROR'S BLADE CHIMERA or EMPEROR'S BLADE TAUROX can disembark. That unit cannot move further in this phase, but can otherwise act normally for the rest of the turn. That unit counts as having moved for any rules purposes, such as shooting Heavy weapons."
     , tags = 
       [ (Tag "Stratagem")
       , (Tag "Movement Phase")

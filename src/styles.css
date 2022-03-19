@@ -1,7 +1,7 @@
 body {
     color: lightcyan;
     background-color: black;
-    font-size: 3.5em;
+    font-size: 3em;
 }
 
 table {
@@ -45,7 +45,7 @@ img.faction-icon {
 }
 
 div.sub-header {
-    font-weight: bold;
+    font-weight: 750;
 }
 
 span.cost {
@@ -54,6 +54,10 @@ span.cost {
 
 .mr {
     margin-right: 0.6em;
+}
+
+.mr-0 {
+    margin-right: 0 !important;
 }
 
 .mt-02 {
@@ -70,4 +74,16 @@ span.cost {
 
 .border {
     border: 1px solid #aaa;
+}
+
+.width-80 {
+    width: 80%;
+}
+
+.width-20 {
+    width: 20%;
+}
+
+td, th {
+    padding: 0.3em;
 }

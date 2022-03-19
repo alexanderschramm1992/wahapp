@@ -230,7 +230,8 @@ articleSubHeaderView model = case model.kind of
         , costView model.cost ]
     Ability -> div [ class "sub-header" ]
         [ span [] [ text "Ability" ] ]
-    _ -> div [] []
+    WarlordTrait -> div [ class "sub-header" ]
+        [ span [] [ text "Warlord Trait" ] ]
 
 costView: Maybe Cost -> Html Msg
 costView model = span [ class "cost" ] [ ( case model of 
@@ -240,9 +241,10 @@ costView model = span [ class "cost" ] [ ( case model of
 
 articleHeaderView: Header -> Html Msg
 articleHeaderView model = header [] 
-    [ h3 [] [ text model.title ]
-    , factionView model.subfaction
-    , factionView model.faction ]
+    [ h3 [ class "width-80 mr-0" ] [ text model.title ]
+    , span [ class "width-80" ] 
+        [ factionView model.subfaction
+        , factionView model.faction] ]
 
 factionView: Maybe Faction -> Html Msg
 factionView model = case model of
