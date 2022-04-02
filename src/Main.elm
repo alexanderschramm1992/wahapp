@@ -57,6 +57,7 @@ update msg model =
 toTerms: String -> List Term
 toTerms text = text
     |> String.split ","
+    |> List.map String.trim
     |> List.map Term
 
 -- Match
