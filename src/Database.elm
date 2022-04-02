@@ -14,8 +14,13 @@ astraMilitarum = Just (Faction "Astra Militarum" "AstraMilitarum.png")
 armageddon: Maybe Faction
 armageddon = Just (Faction "Armageddon" "Armageddon.png")
 
+krieg: Maybe Faction
+krieg = Just (Faction "Krieg" "Krieg.png")
+
 specialistDetachment: Maybe Faction
 specialistDetachment = Just (Faction "Specialist Detachment" "SpecialistDetachment.png")
+
+-- Warlord Traits
 
 warlordTraits: List Article
 warlordTraits =
@@ -92,6 +97,8 @@ warlordTraits =
     , tags = 
       [ (Tag "Warlord Trait")
       , (Tag "Fight Phase") ] } ]
+
+-- Abilities
 
 abilities: List Article
 abilities =
@@ -315,7 +322,29 @@ abilities =
         , subfaction = Nothing }
     , content = Text "Each Heavy Quad Launcher and its crew are treated as a single model for all rules purposes (crew models must remain within 1'' of their Heavy Quad Launcher model). This means that the crew models cannot be targeted or attacked separately and that visibility and all ranges are measured to and from the Heavy Quad Launcher's model, not the crew models. This unit cannot Advance, is never eligible to charge or Heroically Intervene, and cannot make pile-in or consolidation moves."
     , tags = 
-      [ (Tag "Ability") ] } ]
+      [ (Tag "Ability") ] }
+  , { header = 
+        { title = "Augmented Mount"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = krieg }
+    , content = Text "Each time a model in this unit would lose a wound, roll one D6: on a 5+, that wound is not lost."
+    , tags = 
+      [ (Tag "Ability") ] }
+  , { header = 
+        { title = "Flanking Manoeuvres"
+        , cost = Nothing
+        , kind = Ability
+        , faction = astraMilitarum
+        , subfaction = krieg }
+    , content = Text "During deployment, you can set this unit up behind enemy lines instead of setting them up on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases you can set up all of these units wholly within 6'' of the same battlefield edge and more than 9'' away from any enemy models."
+    , tags = 
+      [ (Tag "Ability")
+      , (Tag "Before Battle")
+      , (Tag "Movement Phase") ] } ]
+
+-- Stratagems
 
 stratagems: List Article
 stratagems =
