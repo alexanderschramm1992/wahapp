@@ -79,10 +79,16 @@ type alias HeaderModel m = { m
     , tags: List Tag }
 
 type alias BodyModel m = { m
-    | filteredArticles: List Article }
+    | filteredAbilities: List Article
+    , filteredStratagems: List Article
+    , filteredWarlordTraits: List Article }
 
 type alias Model =
   { searchText: String
   , tags: List Tag
-  , articles: List Article 
-  , filteredArticles: List Article }
+  , abilities: List Article 
+  , stratagems: List Article
+  , warlordTraits: List Article
+  , filteredAbilities: List Article 
+  , filteredStratagems: List Article 
+  , filteredWarlordTraits: List Article }

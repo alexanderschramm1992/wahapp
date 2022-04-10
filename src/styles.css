@@ -34,7 +34,7 @@ input {
     background-color: black;
 }
 
-span.tag {
+span.tag, label.tag {
     font-size: 0.8em;
 }
 
@@ -42,6 +42,7 @@ img.faction-icon {
     height: 1.2em;
     float: right;
     right: 0.6em;
+    width: auto !important;
 }
 
 div.sub-header {
@@ -72,12 +73,48 @@ span.cost {
     padding: 0.6em 0.8em;
 }
 
+.z-99 {
+    z-index: 99;
+}
+
+.relative {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.top-05 {
+    top: 0.5em;
+}
+
+.top-30 {
+    top: 3em;
+}
+
+.top-40 {
+    top: 4em;
+}
+
+.left-32 {
+    left: 32%;
+}
+
+.left-64 {
+    left: 64%;
+}
+
 .border {
     border: 1px solid #aaa;
 }
 
 .width-80 {
     width: 80%;
+}
+
+.width-30 {
+    width: 30% !important;
 }
 
 .width-20 {

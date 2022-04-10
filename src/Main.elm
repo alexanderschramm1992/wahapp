@@ -7,7 +7,11 @@ import Html.Events exposing (..)
 import List exposing (..)
 
 import Model exposing (..)
-import Database exposing (commonTags, state)
+import Database exposing 
+    ( commonTags
+    , abilities
+    , stratagems
+    , warlordTraits )
 import Util exposing (filterEmpty)
 
 main : Program () Model Msg
@@ -22,8 +26,12 @@ init : () -> ( Model, Cmd Msg )
 init _ =
   ( { searchText = ""
     , tags = commonTags
-    , articles = state
-    , filteredArticles = [] }
+    , abilities = abilities
+    , stratagems = stratagems
+    , warlordTraits = warlordTraits
+    , filteredAbilities = []
+    , filteredStratagems = []
+    , filteredWarlordTraits = [] }
   , Cmd.none )
 
 type Msg
@@ -37,7 +45,15 @@ update msg model =
     SearchUpdated text ->
         ( { model 
             | searchText = text
-            , filteredArticles = model.articles
+            , filteredAbilities = model.abilities
+                |> matchArticles (toTerms text)
+                |> filterPairs
+                |> sortPairs
+            , filteredStratagems = model.stratagems
+                |> matchArticles (toTerms text)
+                |> filterPairs
+                |> sortPairs
+            , filteredWarlordTraits = model.warlordTraits
                 |> matchArticles (toTerms text)
                 |> filterPairs
                 |> sortPairs }
@@ -49,7 +65,7 @@ update msg model =
     Clear -> 
         ( { model
             | searchText = ""
-            , filteredArticles = [] }
+            , filteredAbilities = [] }
         , Cmd.none )
 
 -- Term
@@ -151,15 +167,14 @@ combine result1 result2 = case result1 of
 view: Model -> Html Msg
 view model =
   div [ id "view-root" ] 
-    [ article [ class "card" ] 
-        [ headerView model
-        , bodyView model
-        , footer [] [] ] ]
+    [ headerView model
+    , bodyView model
+    , footer [] [] ] 
 
 headerView: HeaderModel m -> Html Msg
 headerView model = header [] 
     [ div [] 
-        [ nav [ class "border" ] 
+        [ nav [ ] 
             [ div [ class "brand" ] 
                 [ input 
                     [ class "mr"
@@ -172,15 +187,44 @@ headerView model = header []
             , label [ for "menu", class "burger pseudo button" ] [ ] ]
             , div [ class "menu" ] 
                 [ a [ href "#", class "pseudo button" ] [ text "Options" ]
-                , a [ href "#", class "pseudo button" ] [ text "About" ] ] ]
-    , div [] 
-        ( model.tags
-            |> List.map tagView ) ]
+                , a [ href "#", class "pseudo button" ] [ text "About" ] ] ] ]
 
 bodyView: BodyModel m -> Html Msg
-bodyView model = div [ class "content" ] 
-    ( model.filteredArticles
-        |> List.map articleView )
+bodyView model = div [ class "content" ]
+    [ div [ class "tabs three" ] 
+        [ input 
+            [ id "tab-1"
+            , type_ "radio"
+            , name "tabgroupA"
+            , checked True ] []
+        , label 
+            [ class "fixed width-30 top-40 z-99 label tag"
+            , for "tab-1" ] 
+            [ text "Abilities" ]
+        , input 
+            [ id "tab-2"
+            , type_ "radio"
+            , name "tabgroupA" ] []
+        , label 
+            [ class "fixed width-30 left-32 top-40 z-99 label tag"
+            , for "tab-2" ] 
+            [ text "Stratagems" ]
+        , input 
+            [ id "tab-3"
+            , type_ "radio"
+            , name "tabgroupA" ] []
+        , label 
+            [ class "fixed width-30 left-64 top-40 z-99 label tag"
+            , for "tab-3" ] 
+            [ text "Warlord Traits" ]
+        , div [ class "row relative top-30" ] 
+            [ div [] ( model.filteredAbilities
+                |> List.map articleView )
+            , div [] ( model.filteredStratagems
+                |> List.map articleView )
+            , div [] ( model.filteredWarlordTraits
+                |> List.map articleView ) ] ] ]
+    
 
 articleView: Article -> Html Msg
 articleView model = article [ class "card m-01" ] 
@@ -243,7 +287,7 @@ costView model = span [ class "cost" ] [ ( case model of
 articleHeaderView: Header -> Html Msg
 articleHeaderView model = header [] 
     [ h3 [ class "width-80 mr-0" ] [ text model.title ]
-    , span [ class "width-80" ] 
+    , span [ class "width-20" ] 
         [ factionView model.subfaction
         , factionView model.faction] ]
 

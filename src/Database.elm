@@ -1,4 +1,8 @@
-module Database exposing (commonTags, state)
+module Database exposing 
+  ( commonTags
+  , abilities
+  , stratagems
+  , warlordTraits )
 
 import Model exposing (..)
 
