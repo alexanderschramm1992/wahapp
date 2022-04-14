@@ -212,7 +212,7 @@ headerView model = header [ class "border" ]
             [ categoryButton "Warlord Traits" ShowWarlordTraits ] ] ]
 
 categoryButton: String -> Msg -> Html Msg
-categoryButton name action = button [ class "width-100 font-size-08", onClick action ] [ text name ]
+categoryButton name action = button [ class "category-button", onClick action ] [ text name ]
 
 bodyView: BodyModel m -> Html Msg
 bodyView model = div [ class "content articles border" ]

@@ -24,8 +24,9 @@ nav {
     background-color: black;
 }
 
-.font-size-08 {
-    font-size: 0.8em;
+.category-button {
+    font-size: 0.7em;
+    width: 100%;
 }
 
 input {
@@ -81,7 +82,7 @@ article.article {
 }
 
 .articles {
-    height: 40em;
+    height: 80%;
     overflow-y: auto;
 }
 

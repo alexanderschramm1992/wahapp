@@ -6702,7 +6702,7 @@ var $author$project$Main$categoryButton = F2(
 			$elm$html$Html$button,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class('width-100 font-size-08'),
+					$elm$html$Html$Attributes$class('category-button'),
 					$elm$html$Html$Events$onClick(action)
 				]),
 			_List_fromArray(
