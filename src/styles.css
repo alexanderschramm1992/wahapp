@@ -24,9 +24,8 @@ nav {
     background-color: black;
 }
 
-div.brand {
-    width: 75%;
-    max-width: 75%;
+.font-size-08 {
+    font-size: 0.8em;
 }
 
 input {
@@ -49,8 +48,24 @@ div.sub-header {
     font-weight: 750;
 }
 
+div.search {
+    margin-left: 0;
+    width: 100%;
+}
+
 span.cost {
     float: right;
+}
+
+.category-tab {
+    font-size: 0.8em;
+    width: 25% !important;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+}
+
+.height-100 {
+    height: 100%;
 }
 
 .mr {
@@ -61,32 +76,25 @@ span.cost {
     margin-right: 0 !important;
 }
 
-.mt-02 {
-    margin-top: 0.2em;
+article.article {
+    margin: 0.1em;
 }
 
-.m-01 {
-    margin: 0.1em;
+.articles {
+    height: 40em;
+    overflow-y: auto;
+}
+
+footer.footer {
+    height: 100%;
+}
+
+.m {
+    padding: 0.6em 0.8em;
 }
 
 .p {
     padding: 0.6em 0.8em;
-}
-
-.z-99 {
-    z-index: 99;
-}
-
-.relative {
-    position: relative;
-}
-
-.fixed {
-    position: fixed;
-}
-
-.top-05 {
-    top: 0.5em;
 }
 
 .top-30 {
@@ -97,28 +105,25 @@ span.cost {
     top: 4em;
 }
 
-.left-32 {
-    left: 32%;
-}
-
-.left-64 {
-    left: 64%;
-}
-
 .border {
+    border-radius: 0.2em;
     border: 1px solid #aaa;
+}
+
+.width-100 {
+    width: 100%;
 }
 
 .width-80 {
     width: 80%;
 }
 
-.width-30 {
-    width: 30% !important;
-}
-
 .width-20 {
     width: 20%;
+}
+
+.width-15 {
+    width: 10%;
 }
 
 td, th {

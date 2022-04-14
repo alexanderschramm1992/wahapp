@@ -8,11 +8,16 @@ import List exposing (..)
 
 import Model exposing (..)
 import Database exposing 
-    ( commonTags
+    ( abilityTag
+    , stratagemTag
+    , warlordTraitTag
     , abilities
     , stratagems
     , warlordTraits )
 import Util exposing (filterEmpty)
+import Database exposing (abilityTag)
+import Database exposing (stratagemTag)
+import Database exposing (warlordTraitTag)
 
 main : Program () Model Msg
 main =
@@ -25,18 +30,16 @@ main =
 init : () -> ( Model, Cmd Msg )
 init _ =
   ( { searchText = ""
-    , tags = commonTags
-    , abilities = abilities
-    , stratagems = stratagems
-    , warlordTraits = warlordTraits
-    , filteredAbilities = []
-    , filteredStratagems = []
-    , filteredWarlordTraits = [] }
+    , articles = abilities ++ stratagems ++ warlordTraits
+    , filteredArticles = [] }
   , Cmd.none )
 
 type Msg
   = SearchUpdated String
   | AddTag Tag
+  | ShowAbilities
+  | ShowStratagems
+  | ShowWarlordTraits
   | Clear
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -45,28 +48,43 @@ update msg model =
     SearchUpdated text ->
         ( { model 
             | searchText = text
-            , filteredAbilities = model.abilities
-                |> matchArticles (toTerms text)
-                |> filterPairs
-                |> sortPairs
-            , filteredStratagems = model.stratagems
-                |> matchArticles (toTerms text)
-                |> filterPairs
-                |> sortPairs
-            , filteredWarlordTraits = model.warlordTraits
-                |> matchArticles (toTerms text)
-                |> filterPairs
-                |> sortPairs }
+            , filteredArticles = search text model.articles }
         , Cmd.none )
     AddTag (Tag tag) ->
         let searchText = if String.isEmpty model.searchText then tag else model.searchText ++ "," ++ tag
             searchUpdated = SearchUpdated searchText
         in update searchUpdated model
+    ShowAbilities ->
+        ( { model
+            | filteredArticles = model.articles
+                |> search model.searchText
+                |> List.filter (\article -> List.member abilityTag article.tags) }
+        , Cmd.none )
+    ShowStratagems ->
+        ( { model
+            | filteredArticles = model.articles
+                |> search model.searchText
+                |> List.filter (\article -> List.member stratagemTag article.tags) }
+        , Cmd.none )
+    ShowWarlordTraits ->
+        ( { model
+            | filteredArticles = model.articles
+                |> search model.searchText
+                |> List.filter (\article -> List.member warlordTraitTag article.tags) }
+        , Cmd.none )
     Clear -> 
         ( { model
             | searchText = ""
-            , filteredAbilities = [] }
+            , filteredArticles = [] }
         , Cmd.none )
+
+-- Search
+
+search: String -> List Article -> List Article
+search text articles = articles
+    |> matchArticles (toTerms text)
+    |> filterPairs
+    |> sortPairs
 
 -- Term
 
@@ -167,67 +185,43 @@ combine result1 result2 = case result1 of
 view: Model -> Html Msg
 view model =
   div [ id "view-root" ] 
-    [ headerView model
-    , bodyView model
-    , footer [] [] ] 
+    [ article [ class "card height-100" ]
+        [ headerView model
+        , bodyView model
+        , footer [ class "footer border" ] [] ] ]
 
 headerView: HeaderModel m -> Html Msg
-headerView model = header [] 
-    [ div [] 
-        [ nav [ ] 
-            [ div [ class "brand" ] 
-                [ input 
-                    [ class "mr"
-                    , type_ "text"
-                    , placeholder "Search"
-                    , value model.searchText
-                    , onInput SearchUpdated ] [] 
-                , button [ title "Clear Search", onClick Clear ] [ text "X" ] ]
-            , input [ id "menu", type_ "checkbox", class "show" ] []
-            , label [ for "menu", class "burger pseudo button" ] [ ] ]
-            , div [ class "menu" ] 
-                [ a [ href "#", class "pseudo button" ] [ text "Options" ]
-                , a [ href "#", class "pseudo button" ] [ text "About" ] ] ] ]
+headerView model = header [ class "border" ] 
+    [ div [ ] 
+        [ input 
+            [ class "width-80 mr"
+            , type_ "text"
+            , placeholder "Search"
+            , value model.searchText
+            , onInput SearchUpdated ] [] 
+        , button 
+            [ class ""
+            , title "Clear Search"
+            , onClick Clear ] [ text "X" ] ] 
+    , div [ class "flex three" ] 
+        [ div []
+            [ categoryButton "Abilities" ShowAbilities ]
+        , div [] 
+            [ categoryButton "Stratagems" ShowStratagems ]
+        , div []
+            [ categoryButton "Warlord Traits" ShowWarlordTraits ] ] ]
+
+categoryButton: String -> Msg -> Html Msg
+categoryButton name action = button [ class "width-100 font-size-08", onClick action ] [ text name ]
 
 bodyView: BodyModel m -> Html Msg
-bodyView model = div [ class "content" ]
-    [ div [ class "tabs three" ] 
-        [ input 
-            [ id "tab-1"
-            , type_ "radio"
-            , name "tabgroupA"
-            , checked True ] []
-        , label 
-            [ class "fixed width-30 top-40 z-99 label tag"
-            , for "tab-1" ] 
-            [ text "Abilities" ]
-        , input 
-            [ id "tab-2"
-            , type_ "radio"
-            , name "tabgroupA" ] []
-        , label 
-            [ class "fixed width-30 left-32 top-40 z-99 label tag"
-            , for "tab-2" ] 
-            [ text "Stratagems" ]
-        , input 
-            [ id "tab-3"
-            , type_ "radio"
-            , name "tabgroupA" ] []
-        , label 
-            [ class "fixed width-30 left-64 top-40 z-99 label tag"
-            , for "tab-3" ] 
-            [ text "Warlord Traits" ]
-        , div [ class "row relative top-30" ] 
-            [ div [] ( model.filteredAbilities
-                |> List.map articleView )
-            , div [] ( model.filteredStratagems
-                |> List.map articleView )
-            , div [] ( model.filteredWarlordTraits
-                |> List.map articleView ) ] ] ]
+bodyView model = div [ class "content articles border" ]
+    ( model.filteredArticles
+        |> List.map articleView )
     
 
 articleView: Article -> Html Msg
-articleView model = article [ class "card m-01" ] 
+articleView model = article [ class "card article" ] 
     [ articleHeaderView model.header
     , div [ class "p" ] 
         [ articleSubHeaderView model.header

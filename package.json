@@ -4,10 +4,10 @@
   "description": "Quick tag-based 40k library",
   "main": "elm.js",
   "scripts": {
-    "test": "parcel src/index.html",
     "prestart": "rimraf ./dist",
     "start": "parcel build src/index.html --public-url ./ && copyfiles -V -f ./src/img/* ./dist/img",
-    "poststart": "live-server ./dist"
+    "poststart": "live-server ./dist",
+    "dev": "watch \"elm make src/Main.elm --output=app.js\" src"
   },
   "keywords": [
     "40k",
@@ -19,12 +19,13 @@
   "dependencies": {
     "copyfiles": "^2.4.1",
     "cordova": "^11.0.0",
-    "live-server": "^1.2.1",
-    "parcel-bundler": "^1.12.5",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "elm": "^0.19.1-5",
     "elm-hot": "^1.1.6",
-    "node-elm-compiler": "^5.0.6"
+    "elm-live": "^2.7.5",
+    "node-elm-compiler": "^5.0.6",
+    "watch": "^1.0.2"
   }
 }
