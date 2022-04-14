@@ -8,16 +8,10 @@ import List exposing (..)
 
 import Model exposing (..)
 import Database exposing 
-    ( abilityTag
-    , stratagemTag
-    , warlordTraitTag
-    , abilities
+    ( abilities
     , stratagems
     , warlordTraits )
 import Util exposing (filterEmpty)
-import Database exposing (abilityTag)
-import Database exposing (stratagemTag)
-import Database exposing (warlordTraitTag)
 
 main : Program () Model Msg
 main =
@@ -30,16 +24,18 @@ main =
 init : () -> ( Model, Cmd Msg )
 init _ =
   ( { searchText = ""
+    , abilities = abilities
+    , stratagems = stratagems
+    , warlordTraits = warlordTraits
+    , showOnlyKind = Nothing
     , articles = abilities ++ stratagems ++ warlordTraits
-    , filteredArticles = [] }
+    , visibleArticles = [] }
   , Cmd.none )
 
 type Msg
   = SearchUpdated String
   | AddTag Tag
-  | ShowAbilities
-  | ShowStratagems
-  | ShowWarlordTraits
+  | ShowOnlyKind Kind
   | Clear
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -48,43 +44,32 @@ update msg model =
     SearchUpdated text ->
         ( { model 
             | searchText = text
-            , filteredArticles = search text model.articles }
+            , visibleArticles = search text model.showOnlyKind model.articles }
         , Cmd.none )
     AddTag (Tag tag) ->
-        let searchText = if String.isEmpty model.searchText then tag else model.searchText ++ "," ++ tag
+        let searchText = if String.isEmpty model.searchText then tag 
+                                                            else model.searchText ++ "," ++ tag
             searchUpdated = SearchUpdated searchText
         in update searchUpdated model
-    ShowAbilities ->
-        ( { model
-            | filteredArticles = model.articles
-                |> search model.searchText
-                |> List.filter (\article -> List.member abilityTag article.tags) }
-        , Cmd.none )
-    ShowStratagems ->
-        ( { model
-            | filteredArticles = model.articles
-                |> search model.searchText
-                |> List.filter (\article -> List.member stratagemTag article.tags) }
-        , Cmd.none )
-    ShowWarlordTraits ->
-        ( { model
-            | filteredArticles = model.articles
-                |> search model.searchText
-                |> List.filter (\article -> List.member warlordTraitTag article.tags) }
-        , Cmd.none )
+    ShowOnlyKind kind -> 
+        if compare kind model.showOnlyKind then update (SearchUpdated model.searchText) { model
+                                                | showOnlyKind = Nothing }
+                                           else update (SearchUpdated model.searchText) { model
+                                                | showOnlyKind = Just kind }
     Clear -> 
         ( { model
             | searchText = ""
-            , filteredArticles = [] }
+            , visibleArticles = [] }
         , Cmd.none )
 
 -- Search
 
-search: String -> List Article -> List Article
-search text articles = articles
+search: String -> Maybe Kind -> List Article -> List Article
+search text kind articles = articles
     |> matchArticles (toTerms text)
     |> filterPairs
     |> sortPairs
+    |> filterByKind kind
 
 -- Term
 
@@ -155,6 +140,12 @@ filterPair pair = case Tuple.second pair of
     Match 0 -> Nothing
     Match _ -> Just pair
 
+filterByKind: Maybe Kind -> List Article -> List Article
+filterByKind kind articles = case kind of
+    Nothing -> articles
+    Just actualKind -> articles
+        |> List.filter (\article -> article.header.kind == actualKind)
+
 -- Sort
 
 sortPairs: List (Article, Model.Result) -> List Article
@@ -182,6 +173,15 @@ combine result1 result2 = case result1 of
         Match m2 -> Match m2
         NoMatch -> NoMatch
 
+-- Util
+
+compare: e -> Maybe e -> Bool
+compare e1 e2 = case e2 of
+    Nothing -> False
+    Just actualE2 -> e1 == actualE2
+
+-- UI
+
 view: Model -> Html Msg
 view model =
   div [ id "view-root" ] 
@@ -205,18 +205,21 @@ headerView model = header [ class "border" ]
             , onClick Clear ] [ text "X" ] ] 
     , div [ class "flex three" ] 
         [ div []
-            [ categoryButton "Abilities" ShowAbilities ]
+            [ kindButton "Abilities" Ability model.showOnlyKind ]
         , div [] 
-            [ categoryButton "Stratagems" ShowStratagems ]
+            [ kindButton "Stratagems" Stratagem model.showOnlyKind ]
         , div []
-            [ categoryButton "Warlord Traits" ShowWarlordTraits ] ] ]
+            [ kindButton "Warlord Traits" WarlordTrait model.showOnlyKind ] ] ]
 
-categoryButton: String -> Msg -> Html Msg
-categoryButton name action = button [ class "category-button", onClick action ] [ text name ]
+kindButton: String -> Kind -> Maybe Kind -> Html Msg
+kindButton name kind currentKind = button 
+        [ class (if (compare kind currentKind) then "kind-button toggle-on" else "kind-button toggle-off")
+        , onClick (ShowOnlyKind kind) ] 
+        [ text name ]
 
 bodyView: BodyModel m -> Html Msg
 bodyView model = div [ class "content articles border" ]
-    ( model.filteredArticles
+    ( model.visibleArticles
         |> List.map articleView )
     
 

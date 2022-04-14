@@ -75,12 +75,17 @@ type alias Article =
     , tags: List Tag }
 
 type alias HeaderModel m = { m 
-    | searchText: String }
+    | searchText: String
+    , showOnlyKind: Maybe Kind }
 
 type alias BodyModel m = { m
-    | filteredArticles: List Article }
+    | visibleArticles: List Article }
 
 type alias Model =
   { searchText: String
-  , articles: List Article 
-  , filteredArticles: List Article }
+  , abilities: List Article 
+  , stratagems: List Article
+  , warlordTraits: List Article
+  , showOnlyKind: Maybe Kind
+  , articles: List Article
+  , visibleArticles: List Article }

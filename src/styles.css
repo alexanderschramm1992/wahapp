@@ -24,9 +24,17 @@ nav {
     background-color: black;
 }
 
-.category-button {
+.kind-button {
     font-size: 0.7em;
     width: 100%;
+}
+
+.toggle-on {
+    background: #0074d9 !important;
+}
+
+.toggle-off {
+    background: #aaa !important;
 }
 
 input {

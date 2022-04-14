@@ -5158,7 +5158,6 @@ var $author$project$Model$Tag = function (a) {
 var $author$project$Model$Text = function (a) {
 	return {$: 'Text', a: a};
 };
-var $author$project$Database$abilityTag = $author$project$Model$Tag('Ability');
 var $author$project$Model$Faction = F2(
 	function (name, image) {
 		return {image: image, name: name};
@@ -5174,7 +5173,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Grinding Advance'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Movement Phase'),
 				$author$project$Model$Tag('Vehicle'),
@@ -5208,7 +5206,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Voice of Command'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Officer'),
 				$author$project$Model$Tag('Infantry')
@@ -5219,7 +5216,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Refractor Field'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Invulnerable Save')
 			])
 	},
@@ -5228,7 +5224,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Senior Officer'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Officer')
 			])
@@ -5238,7 +5233,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Aura of Discipline'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Morale Phase'),
 				$author$project$Model$Tag('Officer'),
 				$author$project$Model$Tag('Leadership')
@@ -5249,7 +5243,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Summary Execution'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Morale Phase'),
 				$author$project$Model$Tag('Commissar')
 			])
@@ -5259,7 +5252,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'It\'s for your own Good'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Psychic Phase'),
 				$author$project$Model$Tag('Perils of the Warp'),
 				$author$project$Model$Tag('Commissar')
@@ -5270,7 +5262,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Smite'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Psychic Phase'),
 				$author$project$Model$Tag('Mortal Wound')
 			])
@@ -5280,7 +5271,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Deny the Witch'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Psychic Phase')
 			])
 	},
@@ -5289,7 +5279,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Psychic Augment'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Psychic Phase'),
 				$author$project$Model$Tag('Infantry')
 			])
@@ -5299,7 +5288,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Explodes'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Vehicle'),
 				$author$project$Model$Tag('Mortal Wound')
 			])
@@ -5309,7 +5297,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Smoke Launchers'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Vehicle'),
 				$author$project$Model$Tag('Shooting Phase')
 			])
@@ -5319,7 +5306,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Emergency Plasma Vents'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Vehicle'),
 				$author$project$Model$Tag('Mortal Wound'),
 				$author$project$Model$Tag('Shooting Phase'),
@@ -5345,7 +5331,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Tank Orders'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Vehicle'),
 				$author$project$Model$Tag('Shooting Phase')
 			])
@@ -5355,7 +5340,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Brute Shield'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Invulnerable Save')
 			])
 	},
@@ -5364,7 +5348,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Avalanche of Muscle'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Fight Phase'),
 				$author$project$Model$Tag('Charge Phase')
 			])
@@ -5374,7 +5357,6 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Leading from the Front'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Morale Phase')
 			])
 	},
@@ -5383,28 +5365,24 @@ var $author$project$Database$abilities = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Vehicle Squadron'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Before Battle')
 			])
 	},
 		{
 		content: $author$project$Model$Text('Each Heavy Quad Launcher and its crew are treated as a single model for all rules purposes (crew models must remain within 1\'\' of their Heavy Quad Launcher model). This means that the crew models cannot be targeted or attacked separately and that visibility and all ranges are measured to and from the Heavy Quad Launcher\'s model, not the crew models. This unit cannot Advance, is never eligible to charge or Heroically Intervene, and cannot make pile-in or consolidation moves.'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Artillery and Crew'},
-		tags: _List_fromArray(
-			[$author$project$Database$abilityTag])
+		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('Each time a model in this unit would lose a wound, roll one D6: on a 5+, that wound is not lost.'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $author$project$Database$krieg, title: 'Augmented Mount'},
-		tags: _List_fromArray(
-			[$author$project$Database$abilityTag])
+		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('During deployment, you can set this unit up behind enemy lines instead of setting them up on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases you can set up all of these units wholly within 6\'\' of the same battlefield edge and more than 9\'\' away from any enemy models.'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $author$project$Database$krieg, title: 'Flanking Manoeuvres'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$abilityTag,
 				$author$project$Model$Tag('Before Battle'),
 				$author$project$Model$Tag('Movement Phase')
 			])
@@ -5424,7 +5402,6 @@ var $author$project$Database$armageddon = $elm$core$Maybe$Just(
 	A2($author$project$Model$Faction, 'Armageddon', 'Armageddon.png'));
 var $author$project$Database$specialistDetachment = $elm$core$Maybe$Just(
 	A2($author$project$Model$Faction, 'Specialist Detachment', 'SpecialistDetachment.png'));
-var $author$project$Database$stratagemTag = $author$project$Model$Tag('Stratagem');
 var $author$project$Database$stratagems = _List_fromArray(
 	[
 		{
@@ -5439,7 +5416,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Vox Caster'),
 				$author$project$Model$Tag('Infantry'),
 				$author$project$Model$Tag('Mortal Wound')
@@ -5457,7 +5433,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Charge Phase'),
 				$author$project$Model$Tag('Overwatch'),
 				$author$project$Model$Tag('Vehicle'),
@@ -5476,7 +5451,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Command Phase'),
 				$author$project$Model$Tag('Heal'),
 				$author$project$Model$Tag('Vehicle')
@@ -5494,7 +5468,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Movement Phase'),
 				$author$project$Model$Tag('Infantry')
 			])
@@ -5511,7 +5484,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Before Battle'),
 				$author$project$Model$Tag('Relic'),
 				$author$project$Model$Tag('Character')
@@ -5529,7 +5501,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Before Battle'),
 				$author$project$Model$Tag('Leadership'),
 				$author$project$Model$Tag('Leman Russ')
@@ -5547,7 +5518,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Before Battle')
 			])
 	},
@@ -5563,7 +5533,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Command Phase'),
 				$author$project$Model$Tag('Officer'),
 				$author$project$Model$Tag('Chimera'),
@@ -5582,7 +5551,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Order')
 			])
 	},
@@ -5598,7 +5566,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Charge Phase'),
 				$author$project$Model$Tag('Vehicle'),
 				$author$project$Model$Tag('Overwatch')
@@ -5616,7 +5583,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Infantry'),
 				$author$project$Model$Tag('Saving Throw')
@@ -5634,7 +5600,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Charge Phase'),
 				$author$project$Model$Tag('Overwatch'),
 				$author$project$Model$Tag('Infantry'),
@@ -5653,7 +5618,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Morale Phase'),
 				$author$project$Model$Tag('Infantry')
 			])
@@ -5670,7 +5634,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Chimera'),
 				$author$project$Model$Tag('Infantry')
@@ -5688,7 +5651,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Command Phase'),
 				$author$project$Model$Tag('Vehicle')
 			])
@@ -5705,7 +5667,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Veterans'),
 				$author$project$Model$Tag('Armour Penetration')
@@ -5723,7 +5684,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Hellhound'),
 				$author$project$Model$Tag('Cover')
@@ -5741,7 +5701,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Heavy Weapons Squad')
 			])
@@ -5758,7 +5717,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Bullgryns'),
 				$author$project$Model$Tag('Infantry')
@@ -5776,7 +5734,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Shooting Phase'),
 				$author$project$Model$Tag('Leman Russ')
 			])
@@ -5793,7 +5750,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Charge Phase'),
 				$author$project$Model$Tag('Chimera')
 			])
@@ -5810,7 +5766,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Before Battle'),
 				$author$project$Model$Tag('Emperor\'s Blade'),
 				$author$project$Model$Tag('Chimera'),
@@ -5831,7 +5786,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Charge Phase'),
 				$author$project$Model$Tag('Emperor\'s Blade'),
 				$author$project$Model$Tag('Chimera'),
@@ -5851,7 +5805,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Movement Phase'),
 				$author$project$Model$Tag('Emperor\'s Blade'),
 				$author$project$Model$Tag('Chimera'),
@@ -5868,8 +5821,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Command Re-Roll'
 		},
-		tags: _List_fromArray(
-			[$author$project$Database$stratagemTag])
+		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('Use this Stratagem when an enemy unit Falls Back, before any models in that unit are moved. Roll one D6 for each model from your army that is within Engagement Range of that enemy unit; for each result of 6, that enemy unit suffers 1 mortal wound.'),
@@ -5883,7 +5835,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Movement Phase'),
 				$author$project$Model$Tag('Fall Back'),
 				$author$project$Model$Tag('Mortal Wound')
@@ -5901,7 +5852,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Movement Phase')
 			])
 	},
@@ -5917,7 +5867,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Transport')
 			])
 	},
@@ -5933,7 +5882,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Charge Phase'),
 				$author$project$Model$Tag('Overwatch')
 			])
@@ -5950,7 +5898,6 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Fight Phase')
 			])
 	},
@@ -5966,27 +5913,23 @@ var $author$project$Database$stratagems = _List_fromArray(
 		},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$stratagemTag,
 				$author$project$Model$Tag('Morale Phase')
 			])
 	}
 	]);
 var $author$project$Model$WarlordTrait = {$: 'WarlordTrait'};
-var $author$project$Database$warlordTraitTag = $author$project$Model$Tag('Warlord Trait');
 var $author$project$Database$warlordTraits = _List_fromArray(
 	[
 		{
 		content: $author$project$Model$Text('Whilst your Warlord is alive, you can re-roll a single hit roll, wound roll or saving throw per battle. In addition, if your army is Battle-forged and this Warlord is on the battlefield, roll a D6 for each Command Point you spend to use a Stratagem; on a 5+ that Command Point is immediately refunded.'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Grand Strategist'},
-		tags: _List_fromArray(
-			[$author$project$Database$warlordTraitTag, $author$project$Database$stratagemTag])
+		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('After deployment, but before the first battle round begins, choose a unit in your opponent\'s army. You can re-roll failed wound rolls for ASTRA MILITARUM units from your army that target the unit you chose whilst they are within 6\'\' of your Warlord.'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Old Grudges'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$warlordTraitTag,
 				$author$project$Model$Tag('Before Battle')
 			])
 	},
@@ -5995,7 +5938,6 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Implacable Determination'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$warlordTraitTag,
 				$author$project$Model$Tag('Movement Phase'),
 				$author$project$Model$Tag('Advance')
 			])
@@ -6005,7 +5947,6 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Draconian Disciplinarian'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$warlordTraitTag,
 				$author$project$Model$Tag('Morale Phase'),
 				$author$project$Model$Tag('Commissar')
 			])
@@ -6013,15 +5954,13 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 		{
 		content: $author$project$Model$Text('Add 3\'\' to the range of any abilities on your Warlord\'s datasheet (such as Aura of Discipline or Voice of Command).'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Bellowing Voice'},
-		tags: _List_fromArray(
-			[$author$project$Database$warlordTraitTag])
+		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('Your Warlord gains the Voice of Command ability. If your Warlord already has the Voice of Command or Tank Orders ability, they may instead issue one additional order per turn. If your Warlord is a COMMISSAR, it can issue an order to any <REGIMENT> INFANTRY unit (irrespective of what regiment that unit is from – e.g. MILITARUM TEMPESTUS, CADIAN, etc.)'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Master of Command'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$warlordTraitTag,
 				$author$project$Model$Tag('Infantry'),
 				$author$project$Model$Tag('Vehicle'),
 				$author$project$Model$Tag('Commissar')
@@ -6032,7 +5971,6 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $author$project$Database$armageddon, title: 'Ex Gang Leader'},
 		tags: _List_fromArray(
 			[
-				$author$project$Database$warlordTraitTag,
 				$author$project$Model$Tag('Fight Phase')
 			])
 	}
@@ -6040,11 +5978,15 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
 		{
+			abilities: $author$project$Database$abilities,
 			articles: _Utils_ap(
 				$author$project$Database$abilities,
 				_Utils_ap($author$project$Database$stratagems, $author$project$Database$warlordTraits)),
-			filteredArticles: _List_Nil,
-			searchText: ''
+			searchText: '',
+			showOnlyKind: $elm$core$Maybe$Nothing,
+			stratagems: $author$project$Database$stratagems,
+			visibleArticles: _List_Nil,
+			warlordTraits: $author$project$Database$warlordTraits
 		},
 		$elm$core$Platform$Cmd$none);
 };
@@ -6053,6 +5995,15 @@ var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Main$SearchUpdated = function (a) {
 	return {$: 'SearchUpdated', a: a};
 };
+var $author$project$Main$compare = F2(
+	function (e1, e2) {
+		if (e2.$ === 'Nothing') {
+			return false;
+		} else {
+			var actualE2 = e2.a;
+			return _Utils_eq(e1, actualE2);
+		}
+	});
 var $elm$core$List$filter = F2(
 	function (isGood, list) {
 		return A3(
@@ -6064,35 +6015,19 @@ var $elm$core$List$filter = F2(
 			_List_Nil,
 			list);
 	});
-var $elm$core$List$any = F2(
-	function (isOkay, list) {
-		any:
-		while (true) {
-			if (!list.b) {
-				return false;
-			} else {
-				var x = list.a;
-				var xs = list.b;
-				if (isOkay(x)) {
-					return true;
-				} else {
-					var $temp$isOkay = isOkay,
-						$temp$list = xs;
-					isOkay = $temp$isOkay;
-					list = $temp$list;
-					continue any;
-				}
-			}
+var $author$project$Main$filterByKind = F2(
+	function (kind, articles) {
+		if (kind.$ === 'Nothing') {
+			return articles;
+		} else {
+			var actualKind = kind.a;
+			return A2(
+				$elm$core$List$filter,
+				function (article) {
+					return _Utils_eq(article.header.kind, actualKind);
+				},
+				articles);
 		}
-	});
-var $elm$core$List$member = F2(
-	function (x, xs) {
-		return A2(
-			$elm$core$List$any,
-			function (a) {
-				return _Utils_eq(a, x);
-			},
-			xs);
 	});
 var $elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
@@ -6155,6 +6090,27 @@ var $author$project$Main$combine = F2(
 				return $author$project$Model$Match(m2);
 			} else {
 				return $author$project$Model$NoMatch;
+			}
+		}
+	});
+var $elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
 			}
 		}
 	});
@@ -6285,14 +6241,17 @@ var $author$project$Main$toTerms = function (text) {
 			$elm$core$String$trim,
 			A2($elm$core$String$split, ',', text)));
 };
-var $author$project$Main$search = F2(
-	function (text, articles) {
-		return $author$project$Main$sortPairs(
-			$author$project$Main$filterPairs(
-				A2(
-					$author$project$Main$matchArticles,
-					$author$project$Main$toTerms(text),
-					articles)));
+var $author$project$Main$search = F3(
+	function (text, kind, articles) {
+		return A2(
+			$author$project$Main$filterByKind,
+			kind,
+			$author$project$Main$sortPairs(
+				$author$project$Main$filterPairs(
+					A2(
+						$author$project$Main$matchArticles,
+						$author$project$Main$toTerms(text),
+						articles))));
 	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
@@ -6305,8 +6264,8 @@ var $author$project$Main$update = F2(
 						_Utils_update(
 							model,
 							{
-								filteredArticles: A2($author$project$Main$search, text, model.articles),
-								searchText: text
+								searchText: text,
+								visibleArticles: A3($author$project$Main$search, text, model.showOnlyKind, model.articles)
 							}),
 						$elm$core$Platform$Cmd$none);
 				case 'AddTag':
@@ -6318,50 +6277,32 @@ var $author$project$Main$update = F2(
 					msg = $temp$msg;
 					model = $temp$model;
 					continue update;
-				case 'ShowAbilities':
-					return _Utils_Tuple2(
-						_Utils_update(
+				case 'ShowOnlyKind':
+					var kind = msg.a;
+					if (A2($author$project$Main$compare, kind, model.showOnlyKind)) {
+						var $temp$msg = $author$project$Main$SearchUpdated(model.searchText),
+							$temp$model = _Utils_update(
+							model,
+							{showOnlyKind: $elm$core$Maybe$Nothing});
+						msg = $temp$msg;
+						model = $temp$model;
+						continue update;
+					} else {
+						var $temp$msg = $author$project$Main$SearchUpdated(model.searchText),
+							$temp$model = _Utils_update(
 							model,
 							{
-								filteredArticles: A2(
-									$elm$core$List$filter,
-									function (article) {
-										return A2($elm$core$List$member, $author$project$Database$abilityTag, article.tags);
-									},
-									A2($author$project$Main$search, model.searchText, model.articles))
-							}),
-						$elm$core$Platform$Cmd$none);
-				case 'ShowStratagems':
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{
-								filteredArticles: A2(
-									$elm$core$List$filter,
-									function (article) {
-										return A2($elm$core$List$member, $author$project$Database$stratagemTag, article.tags);
-									},
-									A2($author$project$Main$search, model.searchText, model.articles))
-							}),
-						$elm$core$Platform$Cmd$none);
-				case 'ShowWarlordTraits':
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{
-								filteredArticles: A2(
-									$elm$core$List$filter,
-									function (article) {
-										return A2($elm$core$List$member, $author$project$Database$warlordTraitTag, article.tags);
-									},
-									A2($author$project$Main$search, model.searchText, model.articles))
-							}),
-						$elm$core$Platform$Cmd$none);
+								showOnlyKind: $elm$core$Maybe$Just(kind)
+							});
+						msg = $temp$msg;
+						model = $temp$model;
+						continue update;
+					}
 				default:
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{filteredArticles: _List_Nil, searchText: ''}),
+							{searchText: '', visibleArticles: _List_Nil}),
 						$elm$core$Platform$Cmd$none);
 			}
 		}
@@ -6689,28 +6630,30 @@ var $author$project$Main$bodyView = function (model) {
 			[
 				$elm$html$Html$Attributes$class('content articles border')
 			]),
-		A2($elm$core$List$map, $author$project$Main$articleView, model.filteredArticles));
+		A2($elm$core$List$map, $author$project$Main$articleView, model.visibleArticles));
 };
 var $author$project$Main$Clear = {$: 'Clear'};
-var $author$project$Main$ShowAbilities = {$: 'ShowAbilities'};
-var $author$project$Main$ShowStratagems = {$: 'ShowStratagems'};
-var $author$project$Main$ShowWarlordTraits = {$: 'ShowWarlordTraits'};
 var $elm$html$Html$button = _VirtualDom_node('button');
-var $author$project$Main$categoryButton = F2(
-	function (name, action) {
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $author$project$Main$ShowOnlyKind = function (a) {
+	return {$: 'ShowOnlyKind', a: a};
+};
+var $author$project$Main$kindButton = F3(
+	function (name, kind, currentKind) {
 		return A2(
 			$elm$html$Html$button,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class('category-button'),
-					$elm$html$Html$Events$onClick(action)
+					$elm$html$Html$Attributes$class(
+					A2($author$project$Main$compare, kind, currentKind) ? 'kind-button toggle-on' : 'kind-button toggle-off'),
+					$elm$html$Html$Events$onClick(
+					$author$project$Main$ShowOnlyKind(kind))
 				]),
 			_List_fromArray(
 				[
 					$elm$html$Html$text(name)
 				]));
 	});
-var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
@@ -6799,21 +6742,21 @@ var $author$project$Main$headerView = function (model) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								A2($author$project$Main$categoryButton, 'Abilities', $author$project$Main$ShowAbilities)
+								A3($author$project$Main$kindButton, 'Abilities', $author$project$Model$Ability, model.showOnlyKind)
 							])),
 						A2(
 						$elm$html$Html$div,
 						_List_Nil,
 						_List_fromArray(
 							[
-								A2($author$project$Main$categoryButton, 'Stratagems', $author$project$Main$ShowStratagems)
+								A3($author$project$Main$kindButton, 'Stratagems', $author$project$Model$Stratagem, model.showOnlyKind)
 							])),
 						A2(
 						$elm$html$Html$div,
 						_List_Nil,
 						_List_fromArray(
 							[
-								A2($author$project$Main$categoryButton, 'Warlord Traits', $author$project$Main$ShowWarlordTraits)
+								A3($author$project$Main$kindButton, 'Warlord Traits', $author$project$Model$WarlordTrait, model.showOnlyKind)
 							]))
 					]))
 			]));
