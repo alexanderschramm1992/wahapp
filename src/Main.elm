@@ -10,7 +10,9 @@ import Model exposing (..)
 import Database exposing 
     ( abilities
     , stratagems
-    , warlordTraits )
+    , warlordTraits
+    , astraMilitarum
+    , adeptusCustodes )
 import Util exposing (filterEmpty)
 
 main : Program () Model Msg
@@ -28,6 +30,7 @@ init _ =
     , stratagems = stratagems
     , warlordTraits = warlordTraits
     , showOnlyKind = Nothing
+    , factionsToShow = []
     , articles = abilities ++ stratagems ++ warlordTraits
     , visibleArticles = [] }
   , Cmd.none )
@@ -188,7 +191,7 @@ view model =
     [ article [ class "card height-100" ]
         [ headerView model
         , bodyView model
-        , footer [ class "footer border" ] [] ] ]
+        , footerView model ] ]
 
 headerView: HeaderModel m -> Html Msg
 headerView model = header [ class "border" ] 
@@ -210,6 +213,20 @@ headerView model = header [ class "border" ]
             [ kindButton "Stratagems" Stratagem model.showOnlyKind ]
         , div []
             [ kindButton "Warlord Traits" WarlordTrait model.showOnlyKind ] ] ]
+
+footerView: FooterModel m -> Html Msg
+footerView model = footer [ class "footer border" ] 
+    [ div [ class "flex two" ] 
+        [ factionCheckbox astraMilitarum
+        , factionCheckbox adeptusCustodes ] ]
+
+factionCheckbox: Faction -> Html Msg
+factionCheckbox faction = span []
+    [ input [ type_ "checkbox", id ("checkbox-" ++ faction.name) ] []
+    , label [ class "checkable", for ("checkbox-" ++ faction.name) ] 
+        [ span []
+            [ span [] [ text faction.name ]
+            , img [ src ("img/" ++ faction.image) ] [] ] ] ]
 
 kindButton: String -> Kind -> Maybe Kind -> Html Msg
 kindButton name kind currentKind = button 

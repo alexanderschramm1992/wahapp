@@ -78,6 +78,9 @@ type alias HeaderModel m = { m
     | searchText: String
     , showOnlyKind: Maybe Kind }
 
+type alias FooterModel m = { m 
+    | factionsToShow: List Faction }
+
 type alias BodyModel m = { m
     | visibleArticles: List Article }
 
@@ -87,5 +90,6 @@ type alias Model =
   , stratagems: List Article
   , warlordTraits: List Article
   , showOnlyKind: Maybe Kind
+  , factionsToShow: List Faction
   , articles: List Article
   , visibleArticles: List Article }

@@ -4,10 +4,7 @@
   "description": "Quick tag-based 40k library",
   "main": "elm.js",
   "scripts": {
-    "prestart": "rimraf ./dist",
-    "start": "parcel build src/index.html --public-url ./ && copyfiles -V -f ./src/img/* ./dist/img",
-    "poststart": "live-server ./dist",
-    "dev": "watch \"elm make src/Main.elm --output=app.js\" src"
+    "start": "watch \"elm make src/Main.elm --output=app.js\" src"
   },
   "keywords": [
     "40k",
@@ -16,11 +13,7 @@
   ],
   "author": "Alexander Schramm",
   "license": "MIT",
-  "dependencies": {
-    "copyfiles": "^2.4.1",
-    "cordova": "^11.0.0",
-    "rimraf": "^3.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "elm": "^0.19.1-5",
     "elm-hot": "^1.1.6",

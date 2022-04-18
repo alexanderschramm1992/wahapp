@@ -5162,15 +5162,20 @@ var $author$project$Model$Faction = F2(
 	function (name, image) {
 		return {image: image, name: name};
 	});
-var $author$project$Database$astraMilitarum = $elm$core$Maybe$Just(
-	A2($author$project$Model$Faction, 'Astra Militarum', 'AstraMilitarum.png'));
+var $author$project$Database$astraMilitarum = A2($author$project$Model$Faction, 'Astra Militarum', 'AstraMilitarum.png');
 var $author$project$Database$krieg = $elm$core$Maybe$Just(
 	A2($author$project$Model$Faction, 'Krieg', 'Krieg.png'));
 var $author$project$Database$abilities = _List_fromArray(
 	[
 		{
 		content: $author$project$Model$Text('If this model Remains Stationary or moves under half speed in its Movement phase (i.e. it moves a distance in inches less than half of its current Move characteristic) it can shoot its turret weapon twice in the following Shooting phase (the turret weapon must target the same unit both times). The following weapons are turret weapons: battle cannon; eradicator nova cannon; exterminator autocannon; vanquisher battle cannon; demolisher cannon; executioner plasma cannon; punisher gatling cannon.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Grinding Advance'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Grinding Advance'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Shooting Phase'),
@@ -5203,7 +5208,13 @@ var $author$project$Database$abilities = _List_fromArray(
 						_List_fromArray(
 						['Fix Bayonets!', 'This order can only be issued to units that are within 1\'\' of an enemy unit. The ordered unit immediately fights as if it were the Fight phase.'])
 					]))),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Voice of Command'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Voice of Command'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Shooting Phase'),
@@ -5213,7 +5224,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('This model has a 5+ invulnerable save.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Refractor Field'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Refractor Field'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Invulnerable Save')
@@ -5221,7 +5238,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('This model may use the Voice of Command ability twice in each of your turns. Resolve the effects of the first order before issuing the second order.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Senior Officer'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Senior Officer'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Shooting Phase'),
@@ -5230,7 +5253,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('ASTRA MILITARUM units within 6\'\' of a friendly COMMISSAR can use the Commissar\'s Leadership instead of their own.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Aura of Discipline'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Aura of Discipline'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Morale Phase'),
@@ -5240,7 +5269,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('The first time an ASTRA MILITARUM unit fails a Morale test during the Morale phase whilst it is within 6\'\' of any friendly COMMISSARS, you can execute a model. If you do, one model of your choice in that unit is slain and the Morale test is re-rolled (do not include this slain model when re-rolling the Morale test).'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Summary Execution'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Summary Execution'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Morale Phase'),
@@ -5249,7 +5284,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('If Aradia Madellan is slain as a result of Perils of the Warp whilst within 6\'\' of a friendly COMMISSAR, she is executed before anything untoward can happen - the power she was attempting still fails, but units within 6\'\' of her do not suffer D3 mortal wounds as normal.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'It\'s for your own Good'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'It\'s for your own Good'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Psychic Phase'),
@@ -5276,7 +5317,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('Psychic Augment has a warp charge value of 8. If manifested, select a friendly ASTRA MILITARUM INFANTRY unit within 12\'\' of the psyker. Add 1 to hit rolls for attacks made by that unit until the start of your next psychic phase.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Psychic Augment'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Psychic Augment'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Psychic Phase'),
@@ -5328,7 +5375,13 @@ var $author$project$Database$abilities = _List_fromArray(
 						_List_fromArray(
 						['Strike and Shroud!', 'This order can only be issued to a model that has not yet used its smoke launchers during the battle. The ordered model can shoot its weapons and launch its smoke launchers during this phase.'])
 					]))),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Tank Orders'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Tank Orders'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Vehicle'),
@@ -5337,7 +5390,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('Models equipped with a brute shield have a 4+ invulnerable save.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Brute Shield'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Brute Shield'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Invulnerable Save')
@@ -5345,7 +5404,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('You can add 1 to the Attacks characteristic of this unit in the Fight phase on any turn in which it made a successful charge. This ability may only be used the first time this unit fights each turn.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Avalanche of Muscle'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Avalanche of Muscle'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Fight Phase'),
@@ -5354,7 +5419,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('Friendly ASTRA MILITARUM units within 6\'\' of this model automatically pass Morale tests whilst this model is within 1\'\' of an enemy model.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Leading from the Front'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Leading from the Front'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Morale Phase')
@@ -5362,7 +5433,13 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('The first time this unit is set up, all models in this unit must be placed within 6\'\' of each other. From that point onwards, each operates independently and is treated as a separate unit for all rules purposes.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Vehicle Squadron'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Vehicle Squadron'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Before Battle')
@@ -5370,17 +5447,35 @@ var $author$project$Database$abilities = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('Each Heavy Quad Launcher and its crew are treated as a single model for all rules purposes (crew models must remain within 1\'\' of their Heavy Quad Launcher model). This means that the crew models cannot be targeted or attacked separately and that visibility and all ranges are measured to and from the Heavy Quad Launcher\'s model, not the crew models. This unit cannot Advance, is never eligible to charge or Heroically Intervene, and cannot make pile-in or consolidation moves.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Artillery and Crew'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Artillery and Crew'
+		},
 		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('Each time a model in this unit would lose a wound, roll one D6: on a 5+, that wound is not lost.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $author$project$Database$krieg, title: 'Augmented Mount'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $author$project$Database$krieg,
+			title: 'Augmented Mount'
+		},
 		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('During deployment, you can set this unit up behind enemy lines instead of setting them up on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases you can set up all of these units wholly within 6\'\' of the same battlefield edge and more than 9\'\' away from any enemy models.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$Ability, subfaction: $author$project$Database$krieg, title: 'Flanking Manoeuvres'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$Ability,
+			subfaction: $author$project$Database$krieg,
+			title: 'Flanking Manoeuvres'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Before Battle'),
@@ -5409,7 +5504,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(3)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Fire on my Position'
@@ -5426,7 +5521,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Crush Them!'
@@ -5444,7 +5539,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Jury Rigging'
@@ -5461,7 +5556,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Consolidate Squads'
@@ -5477,7 +5572,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				A2($author$project$Model$Complex, 1, 3)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Imperial Commander\'s Armoury'
@@ -5494,7 +5589,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(2)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Officio Prefectus Command Tank'
@@ -5511,7 +5606,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Mobile Command Vehicle'
@@ -5526,7 +5621,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(2)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Preliminary Bombardment'
@@ -5544,7 +5639,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Inspired Tactics'
@@ -5559,7 +5654,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Defensive Gunners'
@@ -5576,7 +5671,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Take Cover!'
@@ -5593,7 +5688,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Grenadiers'
@@ -5611,7 +5706,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Fight to the Deatch'
@@ -5627,7 +5722,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $author$project$Database$armageddon,
 			title: 'Armoured Fist'
@@ -5644,7 +5739,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Relentless'
@@ -5660,7 +5755,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Expirienced Eye'
@@ -5677,7 +5772,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Spalsh Damage'
@@ -5694,7 +5789,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Concentrated Fire'
@@ -5710,7 +5805,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Shield of Flesh'
@@ -5727,7 +5822,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(2)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Hail of Fire'
@@ -5743,7 +5838,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $elm$core$Maybe$Nothing,
 			title: 'Head First'
@@ -5759,7 +5854,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $author$project$Database$specialistDetachment,
 			title: 'Emperor\'s Blade Assault Company'
@@ -5779,7 +5874,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $author$project$Database$specialistDetachment,
 			title: 'Mechanised Fire Support'
@@ -5798,7 +5893,7 @@ var $author$project$Database$stratagems = _List_fromArray(
 		header: {
 			cost: $elm$core$Maybe$Just(
 				$author$project$Model$Simple(1)),
-			faction: $author$project$Database$astraMilitarum,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
 			kind: $author$project$Model$Stratagem,
 			subfaction: $author$project$Database$specialistDetachment,
 			title: 'Rapid Redeploy'
@@ -5922,12 +6017,24 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 	[
 		{
 		content: $author$project$Model$Text('Whilst your Warlord is alive, you can re-roll a single hit roll, wound roll or saving throw per battle. In addition, if your army is Battle-forged and this Warlord is on the battlefield, roll a D6 for each Command Point you spend to use a Stratagem; on a 5+ that Command Point is immediately refunded.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Grand Strategist'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Grand Strategist'
+		},
 		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('After deployment, but before the first battle round begins, choose a unit in your opponent\'s army. You can re-roll failed wound rolls for ASTRA MILITARUM units from your army that target the unit you chose whilst they are within 6\'\' of your Warlord.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Old Grudges'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Old Grudges'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Before Battle')
@@ -5935,7 +6042,13 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('When your Warlord and a single friendly unit within 3\'\' of them Advances, they may both add 6\'\' to their Move characteristic for that Movement phase instead of rolling a dice.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Implacable Determination'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Implacable Determination'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Movement Phase'),
@@ -5944,7 +6057,13 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('You can re-roll failed Morale tests for friendly ASTRA MILITARUM INFANTRY units within 6\'\' of your Warlord in the Morale phase. If a COMMISSAR has this Warlord Trait, then their Summary Execution ability takes precedence, but if the re-rolled Morale test is also failed then D3 additional models are slain and the test is then considered to have passed.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Draconian Disciplinarian'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Draconian Disciplinarian'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Morale Phase'),
@@ -5953,12 +6072,24 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('Add 3\'\' to the range of any abilities on your Warlord\'s datasheet (such as Aura of Discipline or Voice of Command).'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Bellowing Voice'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Bellowing Voice'
+		},
 		tags: _List_Nil
 	},
 		{
 		content: $author$project$Model$Text('Your Warlord gains the Voice of Command ability. If your Warlord already has the Voice of Command or Tank Orders ability, they may instead issue one additional order per turn. If your Warlord is a COMMISSAR, it can issue an order to any <REGIMENT> INFANTRY unit (irrespective of what regiment that unit is from – e.g. MILITARUM TEMPESTUS, CADIAN, etc.)'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $elm$core$Maybe$Nothing, title: 'Master of Command'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Master of Command'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Infantry'),
@@ -5968,7 +6099,13 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 	},
 		{
 		content: $author$project$Model$Text('Add 1 to this Warlord\'s Attacks characteristic. In addition, add 1 to any wound rolls made for your Warlord in the Fight phase.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $author$project$Database$astraMilitarum, kind: $author$project$Model$WarlordTrait, subfaction: $author$project$Database$armageddon, title: 'Ex Gang Leader'},
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$astraMilitarum),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $author$project$Database$armageddon,
+			title: 'Ex Gang Leader'
+		},
 		tags: _List_fromArray(
 			[
 				$author$project$Model$Tag('Fight Phase')
@@ -5982,6 +6119,7 @@ var $author$project$Main$init = function (_v0) {
 			articles: _Utils_ap(
 				$author$project$Database$abilities,
 				_Utils_ap($author$project$Database$stratagems, $author$project$Database$warlordTraits)),
+			factionsToShow: _List_Nil,
 			searchText: '',
 			showOnlyKind: $elm$core$Maybe$Nothing,
 			stratagems: $author$project$Database$stratagems,
@@ -6632,9 +6770,82 @@ var $author$project$Main$bodyView = function (model) {
 			]),
 		A2($elm$core$List$map, $author$project$Main$articleView, model.visibleArticles));
 };
+var $author$project$Database$adeptusCustodes = A2($author$project$Model$Faction, 'Adeptus Custodes', 'AdeptusCustodes.png');
+var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$html$Html$label = _VirtualDom_node('label');
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $author$project$Main$factionCheckbox = function (faction) {
+	return A2(
+		$elm$html$Html$span,
+		_List_Nil,
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$input,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$type_('checkbox'),
+						$elm$html$Html$Attributes$id('checkbox-' + faction.name)
+					]),
+				_List_Nil),
+				A2(
+				$elm$html$Html$label,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('checkable'),
+						$elm$html$Html$Attributes$for('checkbox-' + faction.name)
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$span,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$span,
+								_List_Nil,
+								_List_fromArray(
+									[
+										$elm$html$Html$text(faction.name)
+									])),
+								A2(
+								$elm$html$Html$img,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$src('img/' + faction.image)
+									]),
+								_List_Nil)
+							]))
+					]))
+			]));
+};
+var $author$project$Main$footerView = function (model) {
+	return A2(
+		$elm$html$Html$footer,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('footer border')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('flex two')
+					]),
+				_List_fromArray(
+					[
+						$author$project$Main$factionCheckbox($author$project$Database$astraMilitarum),
+						$author$project$Main$factionCheckbox($author$project$Database$adeptusCustodes)
+					]))
+			]));
+};
 var $author$project$Main$Clear = {$: 'Clear'};
 var $elm$html$Html$button = _VirtualDom_node('button');
-var $elm$html$Html$input = _VirtualDom_node('input');
 var $author$project$Main$ShowOnlyKind = function (a) {
 	return {$: 'ShowOnlyKind', a: a};
 };
@@ -6689,7 +6900,6 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 };
 var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
 var $elm$html$Html$Attributes$title = $elm$html$Html$Attributes$stringProperty('title');
-var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Main$headerView = function (model) {
 	return A2(
@@ -6761,7 +6971,6 @@ var $author$project$Main$headerView = function (model) {
 					]))
 			]));
 };
-var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $author$project$Main$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
@@ -6781,13 +6990,7 @@ var $author$project$Main$view = function (model) {
 					[
 						$author$project$Main$headerView(model),
 						$author$project$Main$bodyView(model),
-						A2(
-						$elm$html$Html$footer,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$class('footer border')
-							]),
-						_List_Nil)
+						$author$project$Main$footerView(model)
 					]))
 			]));
 };
