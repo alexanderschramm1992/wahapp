@@ -39,6 +39,7 @@ type Msg
   = SearchUpdated String
   | AddTag Tag
   | ShowOnlyKind Kind
+  | ToggleFaction Faction
   | Clear
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -59,6 +60,12 @@ update msg model =
                                                 | showOnlyKind = Nothing }
                                            else update (SearchUpdated model.searchText) { model
                                                 | showOnlyKind = Just kind }
+    ToggleFaction faction -> 
+        ( { model
+            | factionsToShow = if List.member faction model.factionsToShow 
+                then faction :: model.factionsToShow
+                else (List.filter ((==) faction) model.factionsToShow) }
+        , Cmd.none )
     Clear -> 
         ( { model
             | searchText = ""
@@ -217,16 +224,18 @@ headerView model = header [ class "border" ]
 footerView: FooterModel m -> Html Msg
 footerView model = footer [ class "footer border" ] 
     [ div [ class "flex two" ] 
-        [ factionCheckbox astraMilitarum
-        , factionCheckbox adeptusCustodes ] ]
+        [ factionCheckbox astraMilitarum model
+        , factionCheckbox adeptusCustodes model ] ]
 
-factionCheckbox: Faction -> Html Msg
-factionCheckbox faction = span []
-    [ input [ type_ "checkbox", id ("checkbox-" ++ faction.name) ] []
+factionCheckbox: Faction -> FooterModel m -> Html Msg
+factionCheckbox faction model = span []
+    [ input 
+        [ type_ "checkbox"
+        , checked (List.member faction model.factionsToShow)
+        , onClick (ToggleFaction faction)
+        , id ("checkbox-" ++ faction.name) ] []
     , label [ class "checkable", for ("checkbox-" ++ faction.name) ] 
-        [ span []
-            [ span [] [ text faction.name ]
-            , img [ src ("img/" ++ faction.image) ] [] ] ] ]
+        [ img [ class "faction-icon-large", src ("img/" ++ faction.image) ] [] ] ]
 
 kindButton: String -> Kind -> Maybe Kind -> Html Msg
 kindButton name kind currentKind = button 

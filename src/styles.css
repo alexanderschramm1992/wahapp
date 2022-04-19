@@ -53,6 +53,11 @@ img.faction-icon {
     width: auto !important;
 }
 
+img.faction-icon-large {
+    height: 1.5em;
+    width: auto !important;
+}
+
 div.sub-header {
     font-weight: 750;
 }

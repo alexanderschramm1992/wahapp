@@ -6153,6 +6153,36 @@ var $elm$core$List$filter = F2(
 			_List_Nil,
 			list);
 	});
+var $elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
+			}
+		}
+	});
+var $elm$core$List$member = F2(
+	function (x, xs) {
+		return A2(
+			$elm$core$List$any,
+			function (a) {
+				return _Utils_eq(a, x);
+			},
+			xs);
+	});
 var $author$project$Main$filterByKind = F2(
 	function (kind, articles) {
 		if (kind.$ === 'Nothing') {
@@ -6228,27 +6258,6 @@ var $author$project$Main$combine = F2(
 				return $author$project$Model$Match(m2);
 			} else {
 				return $author$project$Model$NoMatch;
-			}
-		}
-	});
-var $elm$core$List$any = F2(
-	function (isOkay, list) {
-		any:
-		while (true) {
-			if (!list.b) {
-				return false;
-			} else {
-				var x = list.a;
-				var xs = list.b;
-				if (isOkay(x)) {
-					return true;
-				} else {
-					var $temp$isOkay = isOkay,
-						$temp$list = xs;
-					isOkay = $temp$isOkay;
-					list = $temp$list;
-					continue any;
-				}
 			}
 		}
 	});
@@ -6436,6 +6445,18 @@ var $author$project$Main$update = F2(
 						model = $temp$model;
 						continue update;
 					}
+				case 'ToggleFaction':
+					var faction = msg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								factionsToShow: A2($elm$core$List$member, faction, model.factionsToShow) ? A2($elm$core$List$cons, faction, model.factionsToShow) : A2(
+									$elm$core$List$filter,
+									$elm$core$Basics$eq(faction),
+									model.factionsToShow)
+							}),
+						$elm$core$Platform$Cmd$none);
 				default:
 					return _Utils_Tuple2(
 						_Utils_update(
@@ -6771,57 +6792,62 @@ var $author$project$Main$bodyView = function (model) {
 		A2($elm$core$List$map, $author$project$Main$articleView, model.visibleArticles));
 };
 var $author$project$Database$adeptusCustodes = A2($author$project$Model$Faction, 'Adeptus Custodes', 'AdeptusCustodes.png');
+var $author$project$Main$ToggleFaction = function (a) {
+	return {$: 'ToggleFaction', a: a};
+};
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $elm$html$Html$Attributes$boolProperty = F2(
+	function (key, bool) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$bool(bool));
+	});
+var $elm$html$Html$Attributes$checked = $elm$html$Html$Attributes$boolProperty('checked');
 var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
 var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$html$Html$label = _VirtualDom_node('label');
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
-var $author$project$Main$factionCheckbox = function (faction) {
-	return A2(
-		$elm$html$Html$span,
-		_List_Nil,
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$input,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$type_('checkbox'),
-						$elm$html$Html$Attributes$id('checkbox-' + faction.name)
-					]),
-				_List_Nil),
-				A2(
-				$elm$html$Html$label,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('checkable'),
-						$elm$html$Html$Attributes$for('checkbox-' + faction.name)
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$elm$html$Html$span,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$span,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text(faction.name)
-									])),
-								A2(
-								$elm$html$Html$img,
-								_List_fromArray(
-									[
-										$elm$html$Html$Attributes$src('img/' + faction.image)
-									]),
-								_List_Nil)
-							]))
-					]))
-			]));
-};
+var $author$project$Main$factionCheckbox = F2(
+	function (faction, model) {
+		return A2(
+			$elm$html$Html$span,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$type_('checkbox'),
+							$elm$html$Html$Attributes$checked(
+							A2($elm$core$List$member, faction, model.factionsToShow)),
+							$elm$html$Html$Events$onClick(
+							$author$project$Main$ToggleFaction(faction)),
+							$elm$html$Html$Attributes$id('checkbox-' + faction.name)
+						]),
+					_List_Nil),
+					A2(
+					$elm$html$Html$label,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('checkable'),
+							$elm$html$Html$Attributes$for('checkbox-' + faction.name)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$img,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('faction-icon-large'),
+									$elm$html$Html$Attributes$src('img/' + faction.image)
+								]),
+							_List_Nil)
+						]))
+				]));
+	});
 var $author$project$Main$footerView = function (model) {
 	return A2(
 		$elm$html$Html$footer,
@@ -6839,8 +6865,8 @@ var $author$project$Main$footerView = function (model) {
 					]),
 				_List_fromArray(
 					[
-						$author$project$Main$factionCheckbox($author$project$Database$astraMilitarum),
-						$author$project$Main$factionCheckbox($author$project$Database$adeptusCustodes)
+						A2($author$project$Main$factionCheckbox, $author$project$Database$astraMilitarum, model),
+						A2($author$project$Main$factionCheckbox, $author$project$Database$adeptusCustodes, model)
 					]))
 			]));
 };
