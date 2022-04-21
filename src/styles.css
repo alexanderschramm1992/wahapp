@@ -29,6 +29,11 @@ nav {
     width: 100%;
 }
 
+.faction-button {
+    margin-right: 0.6em;
+    padding: 0.1em;
+}
+
 .toggle-on {
     background: #0074d9 !important;
 }

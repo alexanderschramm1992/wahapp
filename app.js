@@ -6183,6 +6183,36 @@ var $elm$core$List$member = F2(
 			},
 			xs);
 	});
+var $elm$core$Basics$neq = _Utils_notEqual;
+var $elm$core$List$isEmpty = function (xs) {
+	if (!xs.b) {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $author$project$Main$isIn = F2(
+	function (maybeE, es) {
+		if (maybeE.$ === 'Nothing') {
+			return $elm$core$List$isEmpty(es);
+		} else {
+			var e = maybeE.a;
+			return A2($elm$core$List$member, e, es);
+		}
+	});
+var $author$project$Main$filterByFaction = F2(
+	function (factions, articles) {
+		if (!factions.b) {
+			return articles;
+		} else {
+			return A2(
+				$elm$core$List$filter,
+				function (article) {
+					return A2($author$project$Main$isIn, article.header.faction, factions);
+				},
+				articles);
+		}
+	});
 var $author$project$Main$filterByKind = F2(
 	function (kind, articles) {
 		if (kind.$ === 'Nothing') {
@@ -6388,17 +6418,17 @@ var $author$project$Main$toTerms = function (text) {
 			$elm$core$String$trim,
 			A2($elm$core$String$split, ',', text)));
 };
-var $author$project$Main$search = F3(
-	function (text, kind, articles) {
-		return A2(
-			$author$project$Main$filterByKind,
-			kind,
-			$author$project$Main$sortPairs(
-				$author$project$Main$filterPairs(
+var $author$project$Main$search = F4(
+	function (text, kind, factions, articles) {
+		return $author$project$Main$sortPairs(
+			$author$project$Main$filterPairs(
+				A2(
+					$author$project$Main$matchArticles,
+					$author$project$Main$toTerms(text),
 					A2(
-						$author$project$Main$matchArticles,
-						$author$project$Main$toTerms(text),
-						articles))));
+						$author$project$Main$filterByKind,
+						kind,
+						A2($author$project$Main$filterByFaction, factions, articles)))));
 	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
@@ -6412,7 +6442,7 @@ var $author$project$Main$update = F2(
 							model,
 							{
 								searchText: text,
-								visibleArticles: A3($author$project$Main$search, text, model.showOnlyKind, model.articles)
+								visibleArticles: A4($author$project$Main$search, text, model.showOnlyKind, model.factionsToShow, model.articles)
 							}),
 						$elm$core$Platform$Cmd$none);
 				case 'AddTag':
@@ -6447,16 +6477,30 @@ var $author$project$Main$update = F2(
 					}
 				case 'ToggleFaction':
 					var faction = msg.a;
-					return _Utils_Tuple2(
-						_Utils_update(
+					if (A2($elm$core$List$member, faction, model.factionsToShow)) {
+						var $temp$msg = $author$project$Main$SearchUpdated(model.searchText),
+							$temp$model = _Utils_update(
 							model,
 							{
-								factionsToShow: A2($elm$core$List$member, faction, model.factionsToShow) ? A2($elm$core$List$cons, faction, model.factionsToShow) : A2(
+								factionsToShow: A2(
 									$elm$core$List$filter,
-									$elm$core$Basics$eq(faction),
+									$elm$core$Basics$neq(faction),
 									model.factionsToShow)
-							}),
-						$elm$core$Platform$Cmd$none);
+							});
+						msg = $temp$msg;
+						model = $temp$model;
+						continue update;
+					} else {
+						var $temp$msg = $author$project$Main$SearchUpdated(model.searchText),
+							$temp$model = _Utils_update(
+							model,
+							{
+								factionsToShow: A2($elm$core$List$cons, faction, model.factionsToShow)
+							});
+						msg = $temp$msg;
+						model = $temp$model;
+						continue update;
+					}
 				default:
 					return _Utils_Tuple2(
 						_Utils_update(
@@ -6795,57 +6839,28 @@ var $author$project$Database$adeptusCustodes = A2($author$project$Model$Faction,
 var $author$project$Main$ToggleFaction = function (a) {
 	return {$: 'ToggleFaction', a: a};
 };
-var $elm$json$Json$Encode$bool = _Json_wrap;
-var $elm$html$Html$Attributes$boolProperty = F2(
-	function (key, bool) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$bool(bool));
-	});
-var $elm$html$Html$Attributes$checked = $elm$html$Html$Attributes$boolProperty('checked');
-var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
-var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
-var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$html$Html$label = _VirtualDom_node('label');
-var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
-var $author$project$Main$factionCheckbox = F2(
+var $elm$html$Html$button = _VirtualDom_node('button');
+var $author$project$Main$factionToggle = F2(
 	function (faction, model) {
 		return A2(
-			$elm$html$Html$span,
-			_List_Nil,
+			$elm$html$Html$button,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class(
+					A2($elm$core$List$member, faction, model.factionsToShow) ? 'faction-button toggle-on' : 'faction-button toggle-off'),
+					$elm$html$Html$Events$onClick(
+					$author$project$Main$ToggleFaction(faction))
+				]),
 			_List_fromArray(
 				[
 					A2(
-					$elm$html$Html$input,
+					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$type_('checkbox'),
-							$elm$html$Html$Attributes$checked(
-							A2($elm$core$List$member, faction, model.factionsToShow)),
-							$elm$html$Html$Events$onClick(
-							$author$project$Main$ToggleFaction(faction)),
-							$elm$html$Html$Attributes$id('checkbox-' + faction.name)
+							$elm$html$Html$Attributes$class('faction-icon-large'),
+							$elm$html$Html$Attributes$src('img/' + faction.image)
 						]),
-					_List_Nil),
-					A2(
-					$elm$html$Html$label,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$class('checkable'),
-							$elm$html$Html$Attributes$for('checkbox-' + faction.name)
-						]),
-					_List_fromArray(
-						[
-							A2(
-							$elm$html$Html$img,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$class('faction-icon-large'),
-									$elm$html$Html$Attributes$src('img/' + faction.image)
-								]),
-							_List_Nil)
-						]))
+					_List_Nil)
 				]));
 	});
 var $author$project$Main$footerView = function (model) {
@@ -6861,17 +6876,18 @@ var $author$project$Main$footerView = function (model) {
 				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('flex two')
+						$elm$html$Html$Attributes$class('flex five center')
 					]),
 				_List_fromArray(
 					[
-						A2($author$project$Main$factionCheckbox, $author$project$Database$astraMilitarum, model),
-						A2($author$project$Main$factionCheckbox, $author$project$Database$adeptusCustodes, model)
+						A2($author$project$Main$factionToggle, $author$project$Database$astraMilitarum, model),
+						A2($elm$html$Html$span, _List_Nil, _List_Nil),
+						A2($author$project$Main$factionToggle, $author$project$Database$adeptusCustodes, model)
 					]))
 			]));
 };
 var $author$project$Main$Clear = {$: 'Clear'};
-var $elm$html$Html$button = _VirtualDom_node('button');
+var $elm$html$Html$input = _VirtualDom_node('input');
 var $author$project$Main$ShowOnlyKind = function (a) {
 	return {$: 'ShowOnlyKind', a: a};
 };
@@ -6926,6 +6942,7 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 };
 var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
 var $elm$html$Html$Attributes$title = $elm$html$Html$Attributes$stringProperty('title');
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Main$headerView = function (model) {
 	return A2(
@@ -6997,6 +7014,7 @@ var $author$project$Main$headerView = function (model) {
 					]))
 			]));
 };
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $author$project$Main$view = function (model) {
 	return A2(
 		$elm$html$Html$div,

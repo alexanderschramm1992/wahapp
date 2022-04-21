@@ -48,24 +48,30 @@ update msg model =
     SearchUpdated text ->
         ( { model 
             | searchText = text
-            , visibleArticles = search text model.showOnlyKind model.articles }
+            , visibleArticles = search 
+                text 
+                model.showOnlyKind 
+                model.factionsToShow 
+                model.articles }
         , Cmd.none )
     AddTag (Tag tag) ->
-        let searchText = if String.isEmpty model.searchText then tag 
-                                                            else model.searchText ++ "," ++ tag
+        let searchText = if String.isEmpty model.searchText 
+                then tag 
+                else model.searchText ++ "," ++ tag
             searchUpdated = SearchUpdated searchText
         in update searchUpdated model
     ShowOnlyKind kind -> 
-        if compare kind model.showOnlyKind then update (SearchUpdated model.searchText) { model
-                                                | showOnlyKind = Nothing }
-                                           else update (SearchUpdated model.searchText) { model
-                                                | showOnlyKind = Just kind }
+        if compare kind model.showOnlyKind 
+            then update (SearchUpdated model.searchText) { model
+                | showOnlyKind = Nothing }
+            else update (SearchUpdated model.searchText) { model
+                | showOnlyKind = Just kind }
     ToggleFaction faction -> 
-        ( { model
-            | factionsToShow = if List.member faction model.factionsToShow 
-                then faction :: model.factionsToShow
-                else (List.filter ((==) faction) model.factionsToShow) }
-        , Cmd.none )
+        if List.member faction model.factionsToShow 
+            then update (SearchUpdated model.searchText) { model
+                | factionsToShow = (List.filter ((/=) faction) model.factionsToShow) }
+            else update (SearchUpdated model.searchText) { model
+                | factionsToShow = faction :: model.factionsToShow }
     Clear -> 
         ( { model
             | searchText = ""
@@ -74,12 +80,13 @@ update msg model =
 
 -- Search
 
-search: String -> Maybe Kind -> List Article -> List Article
-search text kind articles = articles
+search: String -> Maybe Kind -> List Faction -> List Article -> List Article
+search text kind factions articles = articles
+    |> filterByFaction factions
+    |> filterByKind kind
     |> matchArticles (toTerms text)
     |> filterPairs
     |> sortPairs
-    |> filterByKind kind
 
 -- Term
 
@@ -150,6 +157,12 @@ filterPair pair = case Tuple.second pair of
     Match 0 -> Nothing
     Match _ -> Just pair
 
+filterByFaction: List Faction -> List Article -> List Article
+filterByFaction factions articles = case factions of
+    [] -> articles
+    _ -> articles
+        |> List.filter (\article -> isIn article.header.faction factions)
+
 filterByKind: Maybe Kind -> List Article -> List Article
 filterByKind kind articles = case kind of
     Nothing -> articles
@@ -190,6 +203,11 @@ compare e1 e2 = case e2 of
     Nothing -> False
     Just actualE2 -> e1 == actualE2
 
+isIn: Maybe e -> List e -> Bool
+isIn maybeE es = case maybeE of
+    Nothing -> List.isEmpty es
+    Just e -> List.member e es
+
 -- UI
 
 view: Model -> Html Msg
@@ -223,23 +241,24 @@ headerView model = header [ class "border" ]
 
 footerView: FooterModel m -> Html Msg
 footerView model = footer [ class "footer border" ] 
-    [ div [ class "flex two" ] 
-        [ factionCheckbox astraMilitarum model
-        , factionCheckbox adeptusCustodes model ] ]
+    [ div [ class "flex five center" ] 
+        [ factionToggle astraMilitarum model
+        , span [] []
+        , factionToggle adeptusCustodes model ] ]
 
-factionCheckbox: Faction -> FooterModel m -> Html Msg
-factionCheckbox faction model = span []
-    [ input 
-        [ type_ "checkbox"
-        , checked (List.member faction model.factionsToShow)
-        , onClick (ToggleFaction faction)
-        , id ("checkbox-" ++ faction.name) ] []
-    , label [ class "checkable", for ("checkbox-" ++ faction.name) ] 
-        [ img [ class "faction-icon-large", src ("img/" ++ faction.image) ] [] ] ]
+factionToggle: Faction -> FooterModel m -> Html Msg
+factionToggle faction model = button 
+        [ class (if List.member faction model.factionsToShow 
+            then "faction-button toggle-on" 
+            else "faction-button toggle-off")
+        , onClick (ToggleFaction faction) ] 
+        [ img [ class "faction-icon-large", src ("img/" ++ faction.image) ] [] ]
 
 kindButton: String -> Kind -> Maybe Kind -> Html Msg
 kindButton name kind currentKind = button 
-        [ class (if (compare kind currentKind) then "kind-button toggle-on" else "kind-button toggle-off")
+        [ class (if (compare kind currentKind) 
+            then "kind-button toggle-on" 
+            else "kind-button toggle-off")
         , onClick (ShowOnlyKind kind) ] 
         [ text name ]
 
