@@ -119,7 +119,9 @@ matchHeader header terms =
 
 matchFaction: Maybe Faction -> List Term -> Model.Result
 matchFaction maybeFaction terms = case maybeFaction of 
-    Just faction -> if List.any (equalsTerm faction.name) terms then Match 5 else NoMatch
+    Just faction -> if List.any (equalsTerm faction.name) terms 
+        then Match 5 
+        else NoMatch
     Nothing -> NoMatch
 
 matchTags: List Tag -> Term -> Model.Result
