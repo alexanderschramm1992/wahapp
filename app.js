@@ -7028,7 +7028,7 @@ var $author$project$Main$view = function (model) {
 				$elm$html$Html$article,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('card height-85')
+						$elm$html$Html$Attributes$class('card height-100')
 					]),
 				_List_fromArray(
 					[
