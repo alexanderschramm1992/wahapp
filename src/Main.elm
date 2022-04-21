@@ -213,7 +213,7 @@ isIn maybeE es = case maybeE of
 view: Model -> Html Msg
 view model =
   div [ id "view-root" ] 
-    [ article [ class "card height-100" ]
+    [ article [ class "card height-85" ]
         [ headerView model
         , bodyView model
         , footerView model ] ]
