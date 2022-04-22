@@ -24,8 +24,8 @@ specialistDetachment = Just (Faction "Specialist Detachment" "SpecialistDetachme
 
 -- Warlord Traits
 
-warlordTraits: List Article
-warlordTraits =
+astraMilitarumWarlordTraits: List Article
+astraMilitarumWarlordTraits =
   [ { header = 
         { title = "Grand Strategist"
         , cost = Nothing
@@ -92,10 +92,75 @@ warlordTraits =
     , tags = 
       [ (Tag "Fight Phase") ] } ]
 
+adeptusCustodesWarlordTraits: List Article
+adeptusCustodesWarlordTraits = 
+  [ { header = 
+        { title = "Master of Martial Strategy"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "While this WARLORD is on the battlefield, each time you spend a Command point to use a Stratagem, you can roll one D6: on a 5+, that Command point is refunded. Once per battle, in your Command phase, if units from your army are using the Martial Ka'tah ability, before selecting a ka'tah stance for your army, you can change the order of your martial ka'tahs, i.e. primary, secondary or tertiary. Note that this does not allow you to select ka'tah stances more than once."
+    , tags = 
+      [ Tag "Command Phase"
+      , Tag "Martial Ka'tah" ] }
+  , { header = 
+        { title = "Champion of the Imperium"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "This WARLORD is eligible to perform a Heroic Intervention if it is within 6'' horizontally and 5'' vertically of any enemy unit. Each time this WARLORD makes a Heroic Intervention move, it can move up to 6'' instead of 3''. All other rules for Heroic Interventions still apply. Each time this WARLORD makes an attack, you can re-roll the hit roll."
+    , tags = 
+      [ Tag "Shooting Phase"
+      , Tag "Fight Phase"
+      , Tag "Heroic Intervention" ] }
+  , { header = 
+        { title = "Superior Creation"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Each time this WARLORD would lose a wound, roll one D6: on a a 5+, that wound is not lost."
+    , tags = [ ] }
+  , { header = 
+        { title = "Impregnable Mind"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "In your opponent's Psychic phase, this WARLORD can attempt to Deny the Witch once as if it were a PSYKER model. Each time a Deny the Witch test is taken for this WARLORD, add 1 to the result. This WARLORD counts as two additional models when determining control of an objective marker. This is cumulative with any other rules that make it count as additional models."
+    , tags = 
+      [ Tag "Psychic Phase" ] }
+  , { header = 
+        { title = "Radiant Mantle"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Each time an attack is made against this WARLORD, subtract 1 from that attack's hit roll."
+    , tags = 
+      [ Tag "Shooting Phase"
+      , Tag "Fight Phase" ] }
+  , { header = 
+        { title = "Peerless Warrior"
+        , cost = Nothing
+        , kind = WarlordTrait
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Each time this WARLORD makes a melee attack, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage. Each time an attack made by this WARLORD is allocated to an enemy model, the saving throw cannot be re-rolled."
+    , tags = 
+      [ Tag "Shooting Phase"
+      , Tag "Fight Phase" ] } ]
+
+warlordTraits: List Article
+warlordTraits = astraMilitarumWarlordTraits
+             ++ adeptusCustodesWarlordTraits
+
 -- Abilities
 
-abilities: List Article
-abilities =
+astraMilitarumAbilities: List Article
+astraMilitarumAbilities =
   [ { header = 
         { title = "Grinding Advance"
         , cost = Nothing
@@ -208,16 +273,6 @@ abilities =
       [ (Tag "Psychic Phase")
       , (Tag "Infantry") ] }
   , { header = 
-        { title = "Explodes"
-        , cost = Nothing
-        , kind = Ability
-        , faction = Nothing
-        , subfaction = Nothing }
-    , content = Text "If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield. On a 6 it explodes, and each unit within 6'' suffers D3 mortal wounds."
-    , tags = 
-      [ (Tag "Vehicle")
-      , (Tag "Mortal Wound") ] }
-  , { header = 
         { title = "Smoke Launchers"
         , cost = Nothing
         , kind = Ability
@@ -317,10 +372,103 @@ abilities =
       [ (Tag "Before Battle")
       , (Tag "Movement Phase") ] } ]
 
+adeptusCustodesAbilities: List Article
+adeptusCustodesAbilities =
+  [ { header = 
+        { title = "Aegis of the Emperor"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Models in this unit have a 4+ invulnerable save. Each time a model in this unit would lose a wound as a result of a mortal wound, roll one D6: on a 6, that wound is not lost."
+    , tags = [ ] }
+  , { header = 
+        { title = "Martial Ka'tah"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "If every unit from your army has the ADEPTUS CUSTODES keyword (excluding ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units), and every unit that is assigned to a shield host is assigned to the same shield host, this unit can use this ability and the following rules apply. After both sides have deployed, but before you have determined who will have the first turn, you must select a primary, secondary and tertiary martial ka'tah from the list below for your army to use in the battle. Note this down secretly on your army roster. In each of your Command phases, so long as one is available, you must select one ka'tah stance to become active for your army. Each time you do so, units from your army with this ability benefit from it until the start of your next Command phase. When selecting a ka'tah stance to become active, the following rules apply: You cannot select a ka'tah stance more than once. You must select a primary ka'tah stance first, and you cannot select a tertiary ka'tah stance until you have selected a secondary ka'tah stance. Once you select a stance of a different martial ka'tah, you cannot select a stance of a previous martial ka'tah."
+    , tags = 
+      [ Tag "Command Phase"
+      , Tag "Before Battle"
+      , Tag "Martial Ka'tah" ] }
+  , { header = 
+        { title = "Adamantine Mantle"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Each time this model would lose a wound, roll one D6: on a 5+, that wound is not lost."
+    , tags = [ ] }
+  , { header = 
+        { title = "Captain-General"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "If your army is Battle-forged, this model must be your army's WARLORD. If more than one model from your army has a rule to this effect, then one of those models must be your army's WARLORD. If this model is your WARLORD and every unit from your army is ADEPTUS CUSTODES (excluding ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units), you receive 1 additional Command point and this model gains 2 Warlord Traits instead of 1."
+    , tags = 
+      [ Tag "Before Battle" ] }
+  , { header = 
+        { title = "Legendary Commander"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "While a friendly ADEPTUS CUSTODES CORE unit is within 6'' of this model, each time a model in that unit makes an attack, re-roll a hit roll and wound roll of 1."
+    , tags = 
+      [ Tag "Shooting Phase"
+      , Tag "Fight Phase" ] }
+  , { header = 
+        { title = "Moment Shackle"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Once per battle, you can do one of the following: At the end of the Fight phase, if this model is within Engagement Range of any enemy units, it can fight again. When a saving throw is failed for this model, the Damage characteristic of that attack is changed to 0. After an enemy unit has fought, if this model is eligible to fight, you can fight with it next."
+    , tags = 
+      [ Tag "Fight Phase" ] }
+  , { header = 
+        { title = "Aquilane Relic"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Your army can only include each type of vexilla (e.g. vexilla magnifica) once."
+    , tags = [ ] }
+  , { header = 
+        { title = "Implacable Vanguard"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Just adeptusCustodes
+        , subfaction = Nothing }
+    , content = Text "Each time this unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6'' to the Move characteristic of models in this unit."
+    , tags = 
+      [ Tag "Movement Phase" ] } ]
+
+commonAbilities: List Article
+commonAbilities =
+  [ { header = 
+        { title = "Explodes"
+        , cost = Nothing
+        , kind = Ability
+        , faction = Nothing
+        , subfaction = Nothing }
+    , content = Text "If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield. On a 6 it explodes, and each unit within 6'' suffers D3 mortal wounds."
+    , tags = 
+      [ (Tag "Vehicle")
+      , (Tag "Mortal Wound") ] } ]
+
+abilities: List Article
+abilities = astraMilitarumAbilities
+         ++ adeptusCustodesAbilities
+         ++ commonAbilities
+
 -- Stratagems
 
-stratagems: List Article
-stratagems =
+astraMilitarumStratagems: List Article
+astraMilitarumStratagems =
   [ { header = 
         { title = "Fire on my Position"
         , cost = Just (Simple 3)
@@ -583,8 +731,15 @@ stratagems =
       [ (Tag "Movement Phase")
       , (Tag "Emperor's Blade")
       , (Tag "Chimera")
-      , (Tag "Infantry") ] }
-  , { header = 
+      , (Tag "Infantry") ] } ]
+
+adeptusCustodesStratagems: List Article
+adeptusCustodesStratagems = 
+  []
+
+commonStratagems: List Article
+commonStratagems = 
+  [ { header = 
       { title = "Command Re-Roll"
       , cost = Just (Simple 1)
       , kind = Stratagem
@@ -649,3 +804,8 @@ stratagems =
     , content = Text "Use this Stratagem before you take a Morale test for a unit in your army. That test is automatically passed (do not roll any dice). You can only use this Stratagem once per battle."
     , tags = 
       [ (Tag "Morale Phase") ] } ]
+
+stratagems: List Article
+stratagems = astraMilitarumStratagems 
+          ++ adeptusCustodesStratagems 
+          ++ commonStratagems

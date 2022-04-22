@@ -5145,13 +5145,6 @@ var $elm$core$Task$perform = F2(
 	});
 var $elm$browser$Browser$element = _Browser_element;
 var $author$project$Model$Ability = {$: 'Ability'};
-var $author$project$Model$Mixed = F2(
-	function (a, b) {
-		return {$: 'Mixed', a: a, b: b};
-	});
-var $author$project$Model$Table = function (a) {
-	return {$: 'Table', a: a};
-};
 var $author$project$Model$Tag = function (a) {
 	return {$: 'Tag', a: a};
 };
@@ -5162,10 +5155,127 @@ var $author$project$Model$Faction = F2(
 	function (name, image) {
 		return {image: image, name: name};
 	});
+var $author$project$Database$adeptusCustodes = A2($author$project$Model$Faction, 'Adeptus Custodes', 'AdeptusCustodes.png');
+var $author$project$Database$adeptusCustodesAbilities = _List_fromArray(
+	[
+		{
+		content: $author$project$Model$Text('Models in this unit have a 4+ invulnerable save. Each time a model in this unit would lose a wound as a result of a mortal wound, roll one D6: on a 6, that wound is not lost.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Aegis of the Emperor'
+		},
+		tags: _List_Nil
+	},
+		{
+		content: $author$project$Model$Text('If every unit from your army has the ADEPTUS CUSTODES keyword (excluding ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units), and every unit that is assigned to a shield host is assigned to the same shield host, this unit can use this ability and the following rules apply. After both sides have deployed, but before you have determined who will have the first turn, you must select a primary, secondary and tertiary martial ka\'tah from the list below for your army to use in the battle. Note this down secretly on your army roster. In each of your Command phases, so long as one is available, you must select one ka\'tah stance to become active for your army. Each time you do so, units from your army with this ability benefit from it until the start of your next Command phase. When selecting a ka\'tah stance to become active, the following rules apply: You cannot select a ka\'tah stance more than once. You must select a primary ka\'tah stance first, and you cannot select a tertiary ka\'tah stance until you have selected a secondary ka\'tah stance. Once you select a stance of a different martial ka\'tah, you cannot select a stance of a previous martial ka\'tah.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Martial Ka\'tah'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Command Phase'),
+				$author$project$Model$Tag('Before Battle'),
+				$author$project$Model$Tag('Martial Ka\'tah')
+			])
+	},
+		{
+		content: $author$project$Model$Text('Each time this model would lose a wound, roll one D6: on a 5+, that wound is not lost.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Adamantine Mantle'
+		},
+		tags: _List_Nil
+	},
+		{
+		content: $author$project$Model$Text('If your army is Battle-forged, this model must be your army\'s WARLORD. If more than one model from your army has a rule to this effect, then one of those models must be your army\'s WARLORD. If this model is your WARLORD and every unit from your army is ADEPTUS CUSTODES (excluding ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units), you receive 1 additional Command point and this model gains 2 Warlord Traits instead of 1.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Captain-General'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Before Battle')
+			])
+	},
+		{
+		content: $author$project$Model$Text('While a friendly ADEPTUS CUSTODES CORE unit is within 6\'\' of this model, each time a model in that unit makes an attack, re-roll a hit roll and wound roll of 1.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Legendary Commander'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Shooting Phase'),
+				$author$project$Model$Tag('Fight Phase')
+			])
+	},
+		{
+		content: $author$project$Model$Text('Once per battle, you can do one of the following: At the end of the Fight phase, if this model is within Engagement Range of any enemy units, it can fight again. When a saving throw is failed for this model, the Damage characteristic of that attack is changed to 0. After an enemy unit has fought, if this model is eligible to fight, you can fight with it next.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Moment Shackle'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Fight Phase')
+			])
+	},
+		{
+		content: $author$project$Model$Text('Your army can only include each type of vexilla (e.g. vexilla magnifica) once.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Aquilane Relic'
+		},
+		tags: _List_Nil
+	},
+		{
+		content: $author$project$Model$Text('Each time this unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\'\' to the Move characteristic of models in this unit.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$Ability,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Implacable Vanguard'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Movement Phase')
+			])
+	}
+	]);
+var $author$project$Model$Mixed = F2(
+	function (a, b) {
+		return {$: 'Mixed', a: a, b: b};
+	});
+var $author$project$Model$Table = function (a) {
+	return {$: 'Table', a: a};
+};
 var $author$project$Database$astraMilitarum = A2($author$project$Model$Faction, 'Astra Militarum', 'AstraMilitarum.png');
 var $author$project$Database$krieg = $elm$core$Maybe$Just(
 	A2($author$project$Model$Faction, 'Krieg', 'Krieg.png'));
-var $author$project$Database$abilities = _List_fromArray(
+var $author$project$Database$astraMilitarumAbilities = _List_fromArray(
 	[
 		{
 		content: $author$project$Model$Text('If this model Remains Stationary or moves under half speed in its Movement phase (i.e. it moves a distance in inches less than half of its current Move characteristic) it can shoot its turret weapon twice in the following Shooting phase (the turret weapon must target the same unit both times). The following weapons are turret weapons: battle cannon; eradicator nova cannon; exterminator autocannon; vanquisher battle cannon; demolisher cannon; executioner plasma cannon; punisher gatling cannon.'),
@@ -5331,15 +5441,6 @@ var $author$project$Database$abilities = _List_fromArray(
 			])
 	},
 		{
-		content: $author$project$Model$Text('If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield. On a 6 it explodes, and each unit within 6\'\' suffers D3 mortal wounds.'),
-		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Explodes'},
-		tags: _List_fromArray(
-			[
-				$author$project$Model$Tag('Vehicle'),
-				$author$project$Model$Tag('Mortal Wound')
-			])
-	},
-		{
 		content: $author$project$Model$Text('Once per battle, instead of shooting in your Shooting phase, this model can use its smoke launchers. Until the start of your next Shooting phase, when resolving an attack made with a ranged weapon against this model, subtract 1 from the hit roll.'),
 		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Smoke Launchers'},
 		tags: _List_fromArray(
@@ -5483,8 +5584,24 @@ var $author$project$Database$abilities = _List_fromArray(
 			])
 	}
 	]);
+var $author$project$Database$commonAbilities = _List_fromArray(
+	[
+		{
+		content: $author$project$Model$Text('If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield. On a 6 it explodes, and each unit within 6\'\' suffers D3 mortal wounds.'),
+		header: {cost: $elm$core$Maybe$Nothing, faction: $elm$core$Maybe$Nothing, kind: $author$project$Model$Ability, subfaction: $elm$core$Maybe$Nothing, title: 'Explodes'},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Vehicle'),
+				$author$project$Model$Tag('Mortal Wound')
+			])
+	}
+	]);
+var $author$project$Database$abilities = _Utils_ap(
+	$author$project$Database$astraMilitarumAbilities,
+	_Utils_ap($author$project$Database$adeptusCustodesAbilities, $author$project$Database$commonAbilities));
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$Database$adeptusCustodesStratagems = _List_Nil;
 var $author$project$Model$Complex = F2(
 	function (a, b) {
 		return {$: 'Complex', a: a, b: b};
@@ -5497,7 +5614,7 @@ var $author$project$Database$armageddon = $elm$core$Maybe$Just(
 	A2($author$project$Model$Faction, 'Armageddon', 'Armageddon.png'));
 var $author$project$Database$specialistDetachment = $elm$core$Maybe$Just(
 	A2($author$project$Model$Faction, 'Specialist Detachment', 'SpecialistDetachment.png'));
-var $author$project$Database$stratagems = _List_fromArray(
+var $author$project$Database$astraMilitarumStratagems = _List_fromArray(
 	[
 		{
 		content: $author$project$Model$Text('Use this Stratagem when the last model is slain from an ASTRA MILITARUM unit from your army equipped with a vox-caster. Before removing the model, roll a D6 for each unit within 3\'\' of it. On a 4+ that unit suffers D3 mortal wounds.'),
@@ -5905,7 +6022,10 @@ var $author$project$Database$stratagems = _List_fromArray(
 				$author$project$Model$Tag('Chimera'),
 				$author$project$Model$Tag('Infantry')
 			])
-	},
+	}
+	]);
+var $author$project$Database$commonStratagems = _List_fromArray(
+	[
 		{
 		content: $author$project$Model$Text('Use this Stratagem after you have made a hit roll, a wound roll, a damage roll, a saving throw, an Advance roll, a charge roll, a Psychic test, a Deny the Witch test or you have rolled the dice to determine the number of attacks made by a weapon. Re-roll that roll, test or saving throw.'),
 		header: {
@@ -6012,8 +6132,100 @@ var $author$project$Database$stratagems = _List_fromArray(
 			])
 	}
 	]);
+var $author$project$Database$stratagems = _Utils_ap(
+	$author$project$Database$astraMilitarumStratagems,
+	_Utils_ap($author$project$Database$adeptusCustodesStratagems, $author$project$Database$commonStratagems));
 var $author$project$Model$WarlordTrait = {$: 'WarlordTrait'};
-var $author$project$Database$warlordTraits = _List_fromArray(
+var $author$project$Database$adeptusCustodesWarlordTraits = _List_fromArray(
+	[
+		{
+		content: $author$project$Model$Text('While this WARLORD is on the battlefield, each time you spend a Command point to use a Stratagem, you can roll one D6: on a 5+, that Command point is refunded. Once per battle, in your Command phase, if units from your army are using the Martial Ka\'tah ability, before selecting a ka\'tah stance for your army, you can change the order of your martial ka\'tahs, i.e. primary, secondary or tertiary. Note that this does not allow you to select ka\'tah stances more than once.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Master of Martial Strategy'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Command Phase'),
+				$author$project$Model$Tag('Martial Ka\'tah')
+			])
+	},
+		{
+		content: $author$project$Model$Text('This WARLORD is eligible to perform a Heroic Intervention if it is within 6\'\' horizontally and 5\'\' vertically of any enemy unit. Each time this WARLORD makes a Heroic Intervention move, it can move up to 6\'\' instead of 3\'\'. All other rules for Heroic Interventions still apply. Each time this WARLORD makes an attack, you can re-roll the hit roll.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Champion of the Imperium'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Shooting Phase'),
+				$author$project$Model$Tag('Fight Phase'),
+				$author$project$Model$Tag('Heroic Intervention')
+			])
+	},
+		{
+		content: $author$project$Model$Text('Each time this WARLORD would lose a wound, roll one D6: on a a 5+, that wound is not lost.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Superior Creation'
+		},
+		tags: _List_Nil
+	},
+		{
+		content: $author$project$Model$Text('In your opponent\'s Psychic phase, this WARLORD can attempt to Deny the Witch once as if it were a PSYKER model. Each time a Deny the Witch test is taken for this WARLORD, add 1 to the result. This WARLORD counts as two additional models when determining control of an objective marker. This is cumulative with any other rules that make it count as additional models.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Impregnable Mind'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Psychic Phase')
+			])
+	},
+		{
+		content: $author$project$Model$Text('Each time an attack is made against this WARLORD, subtract 1 from that attack\'s hit roll.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Radiant Mantle'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Shooting Phase'),
+				$author$project$Model$Tag('Fight Phase')
+			])
+	},
+		{
+		content: $author$project$Model$Text('Each time this WARLORD makes a melee attack, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage. Each time an attack made by this WARLORD is allocated to an enemy model, the saving throw cannot be re-rolled.'),
+		header: {
+			cost: $elm$core$Maybe$Nothing,
+			faction: $elm$core$Maybe$Just($author$project$Database$adeptusCustodes),
+			kind: $author$project$Model$WarlordTrait,
+			subfaction: $elm$core$Maybe$Nothing,
+			title: 'Peerless Warrior'
+		},
+		tags: _List_fromArray(
+			[
+				$author$project$Model$Tag('Shooting Phase'),
+				$author$project$Model$Tag('Fight Phase')
+			])
+	}
+	]);
+var $author$project$Database$astraMilitarumWarlordTraits = _List_fromArray(
 	[
 		{
 		content: $author$project$Model$Text('Whilst your Warlord is alive, you can re-roll a single hit roll, wound roll or saving throw per battle. In addition, if your army is Battle-forged and this Warlord is on the battlefield, roll a D6 for each Command Point you spend to use a Stratagem; on a 5+ that Command Point is immediately refunded.'),
@@ -6112,6 +6324,7 @@ var $author$project$Database$warlordTraits = _List_fromArray(
 			])
 	}
 	]);
+var $author$project$Database$warlordTraits = _Utils_ap($author$project$Database$astraMilitarumWarlordTraits, $author$project$Database$adeptusCustodesWarlordTraits);
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
 		{
@@ -6835,7 +7048,6 @@ var $author$project$Main$bodyView = function (model) {
 			]),
 		A2($elm$core$List$map, $author$project$Main$articleView, model.visibleArticles));
 };
-var $author$project$Database$adeptusCustodes = A2($author$project$Model$Faction, 'Adeptus Custodes', 'AdeptusCustodes.png');
 var $author$project$Main$ToggleFaction = function (a) {
 	return {$: 'ToggleFaction', a: a};
 };
