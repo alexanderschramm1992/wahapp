@@ -105,7 +105,10 @@ article.article {
 }
 
 footer.footer {
-    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: black;
+    bottom: 0;
 }
 
 .m {
